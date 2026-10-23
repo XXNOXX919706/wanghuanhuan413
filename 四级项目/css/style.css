@@ -1,0 +1,1429 @@
+/* 全局重置 姓名：王 学号：XXX */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+html{
+    background-color:#eee; /* 电脑端两侧灰色背景 */
+}
+body{
+    width:100%;
+    max-width:375px; /* 限制最大宽度375px */
+    min-height:100vh;
+    margin:0 auto;
+    font-family: system-ui, sans-serif;
+    background-color:#f4f4f4;
+    color:#333;
+    padding-bottom:60px;
+    overflow-x:hidden;
+}
+img{
+    width:100%;
+    display:block;
+    cursor:pointer;
+}
+a{
+    text-decoration:none;
+    color:#333;
+}
+ul,li{
+    list-style:none;
+}
+
+/* ===== wang_header 顶部导航 ===== */
+.wang_header{
+    background:#ff4444;
+    position:sticky;
+    top:0;
+    z-index:99;
+}
+.wang_header_box{
+    height:44px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 16px;
+}
+.wang_header_title{
+    color:#fff;
+    font-size:18px;
+}
+.wang_search_icon, .wang_back_icon{
+    color:#fff;
+    font-size:20px;
+}
+
+/* ===== 轮播banner（高度保留180px不变，图片自适应容器） ===== */
+.wang_banner{
+    width:100%;
+    overflow:hidden;
+}
+.wang_banner_wrap{
+    position:relative;
+}
+.wang_banner_list{
+    display:flex;
+    transition:transform 0.3s ease;
+}
+.wang_banner_item{
+    flex:0 0 100%;
+}
+.wang_banner_img{
+    height:180px;
+    overflow:hidden;
+}
+.wang_banner_img img{
+    width:100%;
+    height:100%;
+    object-fit:cover; /* 图片填满轮播容器，不变形，自动裁切多余部分 */
+}
+.wang_banner_dot{
+    position:absolute;
+    bottom:8px;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    gap:6px;
+}
+.wang_dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.5);
+}
+.wang_dot.active{
+    background:#fff;
+}
+
+/* ===== 推荐漫画模块 ===== */
+.wang_section_title{
+    font-size:16px;
+    font-weight:bold;
+    padding:16px;
+}
+.wang_comic_list{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:10px;
+    padding:0 10px;
+}
+.wang_comic_card{
+    background:#fff;
+    border-radius:8px;
+    overflow:hidden;
+}
+.wang_comic_card_img{
+    height:140px;
+}
+.wang_comic_card_name{
+    font-size:14px;
+    padding:6px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.wang_comic_card_tag{
+    font-size:12px;
+    color:#999;
+    padding:0 6px 6px;
+}
+
+/* 排行榜入口 */
+.wang_rank_entry{
+    padding:16px;
+}
+.wang_rank_link{
+    display:block;
+    text-align:center;
+    background:#fff;
+    padding:12px;
+    border-radius:8px;
+    color:#ff4444;
+}
+
+/* ===== 底部tab导航 ===== */
+.wang_tabbar{
+    position:fixed;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:100%;
+    max-width:375px;
+    height:54px;
+    background:#fff;
+    display:flex;
+    border-top:1px solid #eee;
+}
+.wang_tab_item{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+}
+.wang_tab_icon{
+    font-size:18px;
+    margin-bottom:3px;
+}
+.wang_tab_active{
+    color:#ff4444;
+}
+
+/* 返回顶部 */
+.wang_backtop{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:rgba(0,0,0,0.5);
+    color:#fff;
+    position:fixed;
+    bottom:70px;
+    left:calc(50% - 16px);
+    border:none;
+    display:none;
+    font-size:18px;
+}
+
+/* 分类页面 */
+.wang_category_grid{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:10px;
+    padding:0 10px;
+}
+.wang_category_item{
+    background:#fff;
+    text-align:center;
+    padding:12px 0;
+    border-radius:6px;
+}
+
+/* 排行榜页面 */
+.wang_rank_list{
+    padding:0 10px;
+}
+.wang_rank_item{
+    background:#fff;
+    margin-bottom:8px;
+    padding:10px;
+    border-radius:8px;
+    display:flex;
+    gap:10px;
+}
+.wang_rank_num{
+    width:24px;
+    height:24px;
+    background:#ff4444;
+    color:#fff;
+    text-align:center;
+    border-radius:4px;
+}
+
+/* 详情页 */
+.wang_detail_wrap{
+    padding:16px;
+}
+.wang_detail_top{
+    display:flex;
+    gap:14px;
+}
+.wang_detail_img{
+    width:100px;
+    border-radius:6px;
+}
+.wang_detail_name{
+    font-size:18px;
+    margin-bottom:6px;
+}
+.wang_detail_tag{
+    color:#777;
+    font-size:13px;
+}
+.wang_detail_desc{
+    margin:16px 0;
+    line-height:1.6;
+    background:#fff;
+    padding:12px;
+    border-radius:8px;
+}
+.wang_detail_btn_group{
+    display:flex;
+    gap:12px;
+}
+.wang_read_btn{
+    flex:1;
+    text-align:center;
+    background:#ff4444;
+    color:#fff;
+    padding:12px;
+    border-radius:8px;
+}
+.wang_collect_btn{
+    flex:1;
+    border:1px solid #ff4444;
+    background:#fff;
+    color:#ff4444;
+    padding:12px;
+    border-radius:8px;
+}
+.wang_collect_btn.active{
+    background:#ff4444;
+    color:#fff;
+}
+
+/* 阅读页 */
+.wang_read_wrap{
+    padding:10px;
+}
+.wang_page_btn{
+    display:flex;
+    gap:10px;
+    padding:10px;
+}
+.wang_page_btn button{
+    flex:1;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#ff4444;
+    color:#fff;
+}
+
+/* 搜索页 */
+.wang_search_wrap{
+    padding:16px;
+}
+.wang_search_input_box{
+    display:flex;
+    gap:8px;
+}
+.wang_search_input_box input{
+    flex:1;
+    padding:10px;
+    border:1px solid #ddd;
+    border-radius:6px;
+}
+.wang_search_input_box button{
+    padding:0 14px;
+    border:none;
+    background:#ff4444;
+    color:#fff;
+    border-radius:6px;
+}
+.wang_search_tip{
+    margin-top:10px;
+    background:#fff;
+    border-radius:6px;
+}
+.wang_tip_item{
+    padding:10px;
+    border-bottom:1px solid #eee;
+}
+
+/* 我的页面 */
+.wang_mine_wrap{
+    padding:16px;
+}
+.wang_user_box{
+    background:#fff;
+    padding:16px;
+    border-radius:8px;
+    margin-bottom:12px;
+}
+.wang_menu_list{
+    background:#fff;
+    border-radius:8px;
+}
+.wang_menu_item{
+    padding:14px 16px;
+    border-bottom:1px solid #eee;
+}
+
+/* 后台管理 */
+.wang_admin_wrap{
+    padding:16px;
+}
+.wang_admin_form{
+    background:#fff;
+    padding:14px;
+    border-radius:8px;
+    margin-bottom:16px;
+}
+.wang_admin_form input{
+    width:100%;
+    margin:6px 0;
+    padding:10px;
+    border:1px solid #ddd;
+    border-radius:6px;
+}
+.wang_admin_form button{
+    width:100%;
+    padding:10px;
+    background:#ff4444;
+    color:#fff;
+    border:none;
+    border-radius:6px;
+}
+.wang_admin_list{
+    background:#fff;
+    border-radius:8px;
+}
+.wang_admin_item{
+    padding:12px 14px;
+    border-bottom:1px solid #eee;
+    display:flex;
+    justify-content:space-between;
+}
+.wang_admin_del{
+    color:red;
+}
+
+/* ===== 底部备案页脚【压缩】 ===== */
+.wang_footer{
+    padding:6px 10px;
+    background:#fff;
+    margin-top:8px;
+}
+.wang_footer_box{
+    text-align:center;
+    font-size:10px;
+    color:#666;
+    line-height:1.4;
+}
+.wang_footer_title{
+    font-size:12px;
+    color:#333;
+    font-weight:bold;
+    margin-bottom:2px;
+}
+.wang_footer_icp{
+    color:#ff4444;
+}
+.wang_footer_tips{
+    margin-top:2px;
+    color:#999;
+}
+
+/* ===== 榜单精选卡片 2行3列 ===== */
+.wang_rank_card_section{
+    margin-bottom:8px;
+}
+.wang_rank_card_list{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:8px;
+    padding:0 10px;
+}
+.wang_rank_card{
+    background:#fff;
+    border-radius:8px;
+    overflow:hidden;
+    padding-bottom:8px;
+}
+.wang_rank_card_img{
+    height:100px;
+}
+.wang_rank_card_name{
+    font-weight:bold;
+    font-size:13px;
+    padding:6px 8px 2px;
+}
+.wang_rank_card_desc{
+    font-size:11px;
+    color:#666;
+    padding:0 8px 4px;
+    line-height:1.3;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+}
+.wang_rank_card_btn_group{
+    display:flex;
+    gap:4px;
+    padding:0 8px;
+}
+.wang_card_collect,.wang_card_like{
+    flex:1;
+    border:none;
+    padding:4px 0;
+    border-radius:4px;
+    font-size:11px;
+}
+.wang_card_collect{
+    background:#fff;
+    border:1px solid #ff4444;
+    color:#ff4444;
+}
+.wang_card_collect.active{
+    background:#ff4444;
+    color:#fff;
+}
+.wang_card_like{
+    background:#ff4444;
+    color:#fff;
+}
+.wang_card_like.active{
+    background:#ff2222;
+}
+/* 分类页补充样式 */
+.wang_category_wrap{
+    margin-top:8px;
+}
+.wang_category_grid{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:10px;
+    padding:0 10px;
+}
+.wang_category_item{
+    background:#fff;
+    text-align:center;
+    padding:12px 0;
+    border-radius:6px;
+}
+/* 热门分类漫画区域 */
+.wang_hot_category_comic{
+    margin-top:8px;
+}
+/* 提示框模块 */
+.wang_tips_wrap{
+    margin-top:8px;
+    padding-bottom:70px;
+}
+.wang_tips_box{
+    margin:0 10px;
+    background:#fff;
+    border-radius:8px;
+    padding:10px;
+    font-size:12px;
+    color:#666;
+    line-height:1.5;
+}
+/* ===== 排行榜页面新增样式 ===== */
+/* 榜单切换标签 */
+.wang_rank_tab_wrap{
+    background:#fff;
+}
+.wang_rank_tab_list{
+    display:flex;
+}
+.wang_rank_tab_item{
+    flex:1;
+    text-align:center;
+    padding:10px 0;
+    font-size:14px;
+    color:#666;
+}
+.wang_rank_tab_item.wang_rank_tab_active{
+    color:#ff4444;
+    border-bottom:2px solid #ff4444;
+}
+
+.wang_rank_wrap{
+    margin-top:8px;
+}
+
+/* 榜单提示模块 */
+.wang_rank_tips_wrap{
+    margin:8px 10px 70px;
+}
+.wang_rank_tips_box{
+    background:#fff;
+    border-radius:8px;
+    padding:10px;
+    font-size:12px;
+    color:#666;
+    line-height:1.5;
+}
+/* ===== 排行榜页面新增样式：颁奖台 金银铜牌奖杯+阶梯底座 ===== */
+/* 榜单切换标签 */
+.wang_rank_tab_wrap{
+    background:#fff;
+}
+.wang_rank_tab_list{
+    display:flex;
+}
+.wang_rank_tab_item{
+    flex:1;
+    text-align:center;
+    padding:10px 0;
+    font-size:14px;
+    color:#666;
+}
+.wang_rank_tab_item.wang_rank_tab_active{
+    color:#ff4444;
+    border-bottom:2px solid #ff4444;
+}
+
+.wang_rank_wrap{
+    margin-top:8px;
+}
+
+/* 颁奖台容器 */
+.wang_podium_box{
+    background:#fff;
+    margin:0 10px;
+    border-radius:10px;
+    padding:16px 10px;
+}
+.wang_podium_top{
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    gap:6px;
+}
+.wang_podium_item{
+    flex:1;
+    text-align:center;
+}
+/* 奖牌奖杯 */
+.wang_medal{
+    font-size:28px;
+    margin-bottom:6px;
+}
+.wang_podium_img{
+    width:80%;
+    margin:0 auto;
+    aspect-ratio:3/4;
+    border-radius:8px;
+    overflow:hidden;
+    background:#f5f5f5;
+}
+.wang_podium_img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+.wang_podium_name{
+    font-size:13px;
+    font-weight:bold;
+    margin-top:6px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.wang_podium_tag{
+    font-size:11px;
+    color:#888;
+    margin-top:2px;
+}
+/* 阶梯底座样式 */
+.wang_podium_base{
+    margin-top:8px;
+    padding:6px 0;
+    color:#fff;
+    font-size:12px;
+    font-weight:bold;
+    border-radius:4px 4px 0 0;
+}
+.base-gold{
+    background:linear-gradient(135deg,#ffd700,#ffb800);
+    height:44px;
+}
+.base-silver{
+    background:linear-gradient(135deg,#c0c0c0,#a9a9a9);
+    height:32px;
+}
+.base-bronze{
+    background:linear-gradient(135deg,#cd7f32,#b46c2a);
+    height:22px;
+}
+
+/* 冠军榜1（中间最高） */
+.wang_podium_1{
+    transform: translateY(-18px);
+}
+/* 亚军榜2左侧 */
+.wang_podium_2{
+}
+/* 季军榜3右侧 */
+.wang_podium_3{
+}
+
+/* 同类精选推荐区域 */
+.wang_recommend_wrap{
+    margin-top:8px;
+}
+.wang_recommend_list{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:10px;
+    padding:0 10px;
+}
+
+/* 榜单提示模块 */
+.wang_rank_tips_wrap{
+    margin:8px 10px 70px;
+}
+.wang_rank_tips_box{
+    background:#fff;
+    border-radius:8px;
+    padding:10px;
+    font-size:12px;
+    color:#666;
+    line-height:1.5;
+}
+
+/* 榜单列表项 4-10名 */
+.wang_rank_item{
+    background:#fff;
+    margin-bottom:8px;
+    padding:10px;
+    border-radius:8px;
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+.wang_rank_num{
+    width:24px;
+    height:24px;
+    background:#ff4444;
+    color:#fff;
+    text-align:center;
+    border-radius:4px;
+    flex-shrink:0;
+}
+.wang_rank_item_img{
+    width:60px;
+    height:80px;
+    border-radius:4px;
+    object-fit:cover;
+}
+.wang_rank_info{
+    flex:1;
+}
+.wang_rank_title{
+    font-size:14px;
+    font-weight:bold;
+    margin-bottom:4px;
+}
+.wang_rank_tag,.wang_rank_view{
+    font-size:12px;
+    color:#777;
+    line-height:1.4;
+}
+/*分类页新增板块样式*/
+.wang_hot_category_comic,.wang_boy_comic,.wang_girl_comic{
+    margin-top:8px;
+}
+.wang_comic_list{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:10px;
+    padding:0 10px;
+}
+.wang_comic_card{
+    background:#fff;
+    border-radius:8px;
+    overflow:hidden;
+}
+.wang_comic_card_img{
+    width:100%;
+    aspect-ratio:3/4;
+}
+.wang_comic_card_img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+.wang_comic_card_name{
+    font-size:13px;
+    font-weight:bold;
+    padding:4px 6px 0;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.wang_comic_card_tag{
+    font-size:11px;
+    color:#777;
+    padding:2px 6px 6px;
+}
+
+.wang_tips_wrap{
+    margin:8px 10px 70px;
+}
+.wang_tips_box{
+    background:#fff;
+    border-radius:8px;
+    padding:10px;
+    font-size:12px;
+    color:#666;
+    line-height:1.5;
+}
+/* ===== mine我的页面样式，参考截图复刻 ===== */
+.mine_user_box{
+    background:#f0f8ff;
+    padding:20px 15px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+.mine_avatar{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    object-fit:cover;
+}
+.mine_username{
+    font-size:20px;
+    font-weight:bold;
+}
+.mine_user_level{
+    font-size:14px;
+    color:#666;
+    margin:4px 0;
+}
+.mine_tag{
+    background:#7b68ee;
+    color:#fff;
+    padding:2px 6px;
+    border-radius:12px;
+    font-size:12px;
+}
+.mine_honor{
+    font-size:13px;
+    color:#999;
+}
+.mine_sign_btn{
+    margin-left:auto;
+    background:#ff7875;
+    color:#fff;
+    padding:6px 12px;
+    border-radius:15px;
+    font-size:14px;
+}
+
+/*回归限免卡横幅*/
+.mine_banner{
+    margin:8px 10px;
+    background:#e8f4ff;
+    border-radius:10px;
+    padding:10px 14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+.banner_text{
+    font-size:16px;
+    color:#0066cc;
+    font-weight:bold;
+}
+.banner_time{
+    font-size:13px;
+    color:#555;
+}
+
+/*点券阅点统计行*/
+.mine_count_wrap{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    background:#fff;
+    margin:0 10px;
+    border-radius:10px;
+    padding:12px 0;
+    text-align:center;
+}
+.count_num{
+    font-size:26px;
+    font-weight:bold;
+}
+.count_name{
+    font-size:13px;
+    color:#666;
+}
+.count_tip{
+    color:#ff4444;
+    font-size:11px;
+}
+
+/*VIP会员横幅*/
+.mine_vip_banner{
+    margin:8px 10px;
+    background:linear-gradient(90deg,#ffd740,#ffc107);
+    border-radius:10px;
+    padding:10px 14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-weight:bold;
+}
+.vip_btn{
+    background:#fff;
+    border:none;
+    border-radius:14px;
+    padding:4px 10px;
+    color:#ff9800;
+    font-weight:bold;
+}
+
+/*福利中心 我的卡牌 两栏*/
+/* ===== mine我的页面样式 ===== */
+.mine_user_box{
+    background:#f0f8ff;
+    padding:20px 15px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+.mine_avatar{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    object-fit:cover;
+}
+.mine_username{
+    font-size:20px;
+    font-weight:bold;
+}
+.mine_user_level{
+    font-size:14px;
+    color:#666;
+    margin:4px 0;
+}
+.mine_tag{
+    background:#7b68ee;
+    color:#fff;
+    padding:2px 6px;
+    border-radius:12px;
+    font-size:12px;
+}
+.mine_honor{
+    font-size:13px;
+    color:#999;
+}
+.mine_sign_btn{
+    margin-left:auto;
+    background:#ff7875;
+    color:#fff;
+    padding:6px 12px;
+    border-radius:15px;
+    font-size:14px;
+}
+
+/* 回归限免卡横幅 */
+.mine_banner{
+    margin:8px 10px;
+    background:#e8f4ff;
+    border-radius:10px;
+    padding:10px 14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+.banner_text{
+    font-size:16px;
+    color:#0066cc;
+    font-weight:bold;
+}
+.banner_time{
+    font-size:13px;
+    color:#555;
+}
+
+/* 点券阅点统计行 */
+.mine_count_wrap{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    background:#fff;
+    margin:0 10px;
+    border-radius:10px;
+    padding:12px 0;
+    text-align:center;
+}
+.count_num{
+    font-size:26px;
+    font-weight:bold;
+}
+.count_name{
+    font-size:13px;
+    color:#666;
+}
+.count_tip{
+    color:#ff4444;
+    font-size:11px;
+}
+
+/* VIP会员横幅 */
+.mine_vip_banner{
+    margin:8px 10px;
+    background:linear-gradient(90deg,#ffd740,#ffc107);
+    border-radius:10px;
+    padding:10px 14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-weight:bold;
+}
+.vip_btn{
+    background:#fff;
+    border:none;
+    border-radius:14px;
+    padding:4px 10px;
+    color:#ff9800;
+    font-weight:bold;
+}
+
+/* 福利中心：单独居中 */
+.mine_welfare_center{
+    padding:0 10px;
+    margin-top:8px;
+}
+.mine_card_block{
+    background:#fff;
+    border-radius:10px;
+    padding:12px;
+}
+.mine_card_block_center{
+    max-width:375px;
+    margin:0 auto;
+}
+.block_title{
+    display:flex;
+    justify-content:space-between;
+    font-size:16px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+.more{
+    font-size:13px;
+    color:#ff4444;
+}
+.block_content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+}
+.block_item{
+    background:#f7f7f7;
+    border-radius:8px;
+    padding:10px 6px;
+    text-align:center;
+}
+.item_name{
+    font-size:13px;
+}
+.item_go{
+    font-size:12px;
+    color:#ff4444;
+    margin-top:4px;
+}
+
+/* 功能入口：只保留周边商城 + 现金好礼 */
+.mine_func_wrap{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:10px;
+    padding:0 10px;
+    margin-top:10px;
+}
+.func_item{
+    background:#fff;
+    border-radius:10px;
+    text-align:center;
+    padding:14px 4px;
+}
+.func_icon{
+    font-size:28px;
+    margin-bottom:4px;
+}
+.func_name{
+    font-size:14px;
+    font-weight:bold;
+}
+.func_desc{
+    font-size:11px;
+    color:#777;
+    margin-top:2px;
+}
+
+/* 开关模块 */
+.mine_switch_wrap{
+    margin:12px 10px 70px;
+    background:#fff;
+    border-radius:10px;
+    padding:12px;
+}
+.switch_item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:8px 0;
+    border-bottom:1px solid #eee;
+}
+.switch_item:last-child{
+    border:none;
+}
+.switch_tip{
+    font-size:12px;
+    color:#888;
+    margin-left:6px;
+}
+.switch_btn{
+    width:40px;
+    height:22px;
+    background:#ff7875;
+    border-radius:12px;
+}
+/*漫画详情页样式 手机流式*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.read_banner_box{
+    width:100%;
+    box-sizing: border-box;
+    position:relative;
+}
+.read_back_btn{
+    position:absolute;
+    top:12px;
+    left:12px;
+    z-index:1;
+    width:40px;
+    height:40px;
+    border:0;
+    border-radius:50%;
+    background:rgba(0,0,0,0.5);
+    color:#fff;
+    font-size:28px;
+    line-height:1;
+    cursor:pointer;
+}
+.read_banner_img{
+    width:100%;
+    display:block;
+}
+.read_title_box{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:8px 12px;
+}
+.read_comic_title{
+    margin:0;
+    font-size:22px;
+}
+.read_follow_btn{
+    background:#ffd33d;
+    border:none;
+    border-radius:18px;
+    padding:5px 14px;
+}
+.read_data_info{
+    padding:0 12px 10px;
+    font-size:14px;
+    color:#666;
+}
+
+/*会员栏*/
+.read_vip_bar{
+    margin:8px 12px;
+    background:#e9e5ff;
+    border-radius:8px;
+    padding:10px;
+    display:flex;
+    gap:8px;
+    align-items:center;
+}
+.vip_tag{
+    background:#7b61ff;
+    color:#fff;
+    padding:3px 6px;
+    border-radius:4px;
+    font-size:13px;
+}
+.vip_link{
+    color:#7b61ff;
+}
+
+/*标签+简介*/
+.read_intro_wrap{
+    padding:0 12px;
+}
+.read_tag_group{
+    display:flex;
+    gap:8px;
+    margin:8px 0;
+}
+.read_tag{
+    background:#eee;
+    padding:4px 8px;
+    border-radius:6px;
+    font-size:14px;
+}
+.read_desc{
+    font-size:15px;
+}
+.expand_btn{
+    color:#7b61ff;
+}
+.read_author_line{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin:8px 0;
+    font-size:13px;
+    color:#666;
+}
+
+/*评分卡片*/
+.read_score_box{
+    margin:12px;
+    background:#fff;
+    border-radius:10px;
+    padding:14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.score_num{
+    font-size:40px;
+    font-weight:bold;
+    color:#ffbc00;
+}
+
+/*等免绿色提示条*/
+.read_free_tip{
+    margin:0 12px;
+    background:#e7f9ee;
+    border-radius:8px;
+    padding:12px;
+    display:grid;
+    grid-template-columns: 40px 1fr 80px;
+    gap:10px;
+    align-items:center;
+}
+.free_tag.green{
+    background:#32c860;
+    color:#fff;
+    padding:2px 5px;
+    border-radius:4px;
+}
+.free_price{
+    font-size:20px;
+    font-weight:bold;
+}
+.free_sub{
+    font-size:12px;
+    color:#555;
+}
+.free_right{
+    color:#28a745;
+    text-align:right;
+}
+
+/*选集*/
+.read_select_wrap{
+    padding:12px;
+}
+.select_head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.buy_all_btn{
+    background:#ffd33d;
+    border:none;
+    border-radius:16px;
+    padding:4px 10px;
+}
+.select_tip{
+    font-size:13px;
+    color:#777;
+}
+.chapter_list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin:10px 0;
+}
+.chapter_item img{
+    width:100%;
+    border-radius:8px;
+}
+.chapter_item p{
+    font-size:14px;
+    text-align:center;
+    margin:4px 0;
+}
+
+/*继续阅读按钮*/
+.read_bottom_btn_box{
+    padding:12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.continue_read_btn{
+    background:#ffd33d;
+    border:none;
+    border-radius:20px;
+    padding:8px 22px;
+    font-size:16px;
+    font-weight:bold;
+}
+/*搜索页面 模仿抖音搜索页布局 手机端*/
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    background:#fff;
+    font-family: system-ui, sans-serif;
+}
+.wang_search_wrap{
+    padding:12px;
+}
+/*搜索框*/
+.wang_search_input_box{
+    display:flex;
+    gap:8px;
+    margin-bottom:16px;
+}
+#wang_search_input{
+    flex:1;
+    padding:10px 12px;
+    border-radius:99px;
+    border:1px solid #ddd;
+    background:#f5f5f5;
+    outline:none;
+    font-size:16px;
+}
+#wang_search_submit{
+    padding:0 14px;
+    border-radius:99px;
+    border:none;
+    background:#000;
+    color:#fff;
+}
+
+/*区块标题行*/
+.block_title_row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:16px 0 8px;
+}
+.block_title_row h3{
+    font-size:17px;
+    font-weight:500;
+    color:#222;
+}
+.title_right{
+    display:flex;
+    gap:16px;
+    color:#666;
+    font-size:14px;
+}
+
+/*双列列表 历史/猜你想搜*/
+.two_col_list{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:8px 12px;
+}
+.history_item, .recom_item{
+    padding:8px 0;
+    font-size:16px;
+    color:#222;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+/*tab横向滚动栏*/
+.wang_tab_block{
+    margin-top:18px;
+}
+.tab_scroll{
+    display:flex;
+    overflow-x:auto;
+    gap:24px;
+    padding:8px 0;
+}
+.tab_item{
+    font-size:16px;
+    color:#666;
+    white-space:nowrap;
+}
+.tab_item.active{
+    color:#000;
+    font-weight:500;
+}
+
+/*漫画卡片2列*/
+.comic_card_list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:12px;
+}
+.comic_card{
+    overflow:hidden;
+}
+.card_img{
+    width:100%;
+    height:260px;
+    background:#eee;
+    border-radius:8px;
+}
+.card_text{
+    margin:6px 0 4px;
+    font-size:15px;
+}
+.card_bottom{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    color:#666;
+}
+.comic_card_list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:12px;
+}
+.comic_card{
+    overflow:hidden;
+}
+.card_img{
+    width:100%;
+    height:260px;
+    object-fit: cover; /* 图片不变形，裁剪多余部分，保持比例 */
+    border-radius:8px;
+    display:block;
+}
+.card_text{
+    margin:6px 0 4px;
+    font-size:15px;
+}
+.card_bottom{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    color:#666;
+}
+.wang_header_box{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+.wang_back_icon{
+    font-size:20px;
+    cursor:pointer;
+}
+.wang_search_icon{
+    text-decoration: none;
+    color:#000;
+}

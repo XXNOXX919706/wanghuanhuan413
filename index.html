@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IconFont 图标方案展示 · 首页</title>
+<link rel="stylesheet" href="cdn/font-awesome/css/all.min.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --whh_bg-dark: #0f0c29;
+    --whh_bg-mid: #302b63;
+    --whh_bg-light: #24243e;
+    --whh_gold: #f9d423;
+    --whh_gold-deep: #e8a317;
+    --whh_teal: #4fd1c5;
+    --whh_teal-deep: #38b2ac;
+    --whh_text: #f0eef6;
+    --whh_text-muted: #a8a4c0;
+    --whh_card-bg: rgba(255, 255, 255, 0.06);
+    --whh_card-border: rgba(255, 255, 255, 0.12);
+  }
+
+  body {
+    font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, var(--whh_bg-dark) 0%, var(--whh_bg-mid) 50%, var(--whh_bg-light) 100%);
+    color: var(--whh_text);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle at 30% 20%, rgba(249, 212, 35, 0.1), transparent 40%),
+                radial-gradient(circle at 70% 80%, rgba(79, 209, 197, 0.12), transparent 45%);
+    animation: whh_bgFloat 20s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  @keyframes whh_bgFloat {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-3%, 3%) scale(1.05); }
+  }
+
+  .whh_nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(20px);
+    background: rgba(15, 12, 41, 0.7);
+    border-bottom: 1px solid var(--whh_card-border);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .whh_logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .whh_logo i {
+    color: var(--whh_gold);
+    font-size: 1.8rem;
+    filter: drop-shadow(0 0 12px rgba(249, 212, 35, 0.4));
+  }
+
+  .whh_logo span {
+    background: linear-gradient(90deg, var(--whh_gold), var(--whh_teal));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .whh_hero {
+    text-align: center;
+    padding: 6rem 2rem 3rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .whh_hero-badge {
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
+    border: 1px solid var(--whh_gold);
+    border-radius: 999px;
+    color: var(--whh_gold);
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .whh_hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .whh_hero h1 .whh_gradient-text {
+    background: linear-gradient(135deg, var(--whh_gold) 0%, var(--whh_teal) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .whh_hero p {
+    font-size: 1.15rem;
+    color: var(--whh_text-muted);
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .whh_container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .whh_cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .whh_card {
+    background: var(--whh_card-bg);
+    border: 1px solid var(--whh_card-border);
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    text-decoration: none;
+    color: var(--whh_text);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    display: block;
+  }
+
+  .whh_card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: linear-gradient(90deg, var(--whh_accent-start), var(--whh_accent-end));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s;
+  }
+
+  .whh_card:hover::before { transform: scaleX(1); }
+
+  .whh_card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 60px var(--whh_glow);
+    border-color: var(--whh_accent-start);
+  }
+
+  .whh_card--fa {
+    --whh_accent-start: #f9d423;
+    --whh_accent-end: #e8a317;
+    --whh_glow: rgba(249, 212, 35, 0.25);
+  }
+
+  .whh_card--lucide {
+    --whh_accent-start: #4fd1c5;
+    --whh_accent-end: #38b2ac;
+    --whh_glow: rgba(79, 209, 197, 0.25);
+  }
+
+  .whh_card--tabbar-font {
+    --whh_accent-start: #a78bfa;
+    --whh_accent-end: #7c3aed;
+    --whh_glow: rgba(167, 139, 250, 0.25);
+  }
+
+  .whh_card--tabbar-svg {
+    --whh_accent-start: #fb923c;
+    --whh_accent-end: #ea580c;
+    --whh_glow: rgba(251, 146, 60, 0.25);
+  }
+
+  .whh_card-icon {
+    width: 80px; height: 80px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--whh_accent-start), var(--whh_accent-end));
+    color: #1a1a2e;
+    box-shadow: 0 8px 24px var(--whh_glow);
+  }
+
+  .whh_card h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .whh_card .whh_card-subtitle {
+    font-size: 0.9rem;
+    color: var(--whh_text-muted);
+    margin-bottom: 1.25rem;
+  }
+
+  .whh_card p {
+    color: var(--whh_text-muted);
+    line-height: 1.7;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .whh_card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .whh_tag {
+    padding: 0.3rem 0.8rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    font-size: 0.75rem;
+    color: var(--whh_text-muted);
+  }
+
+  .whh_card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--whh_accent-start);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: gap 0.3s;
+  }
+
+  .whh_card:hover .whh_card-link { gap: 1rem; }
+
+  .whh_feature-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+
+  .whh_feature {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: var(--whh_card-bg);
+    border: 1px solid var(--whh_card-border);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+  }
+
+  .whh_feature i {
+    font-size: 2rem;
+    color: var(--whh_gold);
+    margin-bottom: 1rem;
+  }
+
+  .whh_feature h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .whh_feature p {
+    font-size: 0.85rem;
+    color: var(--whh_text-muted);
+    line-height: 1.6;
+  }
+
+  .whh_footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+    border-top: 1px solid var(--whh_card-border);
+    color: var(--whh_text-muted);
+    position: relative;
+    z-index: 1;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 640px) {
+    .whh_hero { padding: 3rem 1rem 2rem; }
+    .whh_container { padding: 1rem; }
+    .whh_card { padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="whh_nav">
+  <div class="whh_logo">
+    <i class="fa-solid fa-icons"></i>
+    <span>IconFont Gallery</span>
+  </div>
+</nav>
+
+<header class="whh_hero">
+  <div class="whh_hero-badge">图标方案对比展示</div>
+  <h1>探索 <span class="whh_gradient-text">图标艺术</span><br>的两种表达</h1>
+  <p>对比展示 Font Awesome 字体图标与 Lucide SVG 图标的艺术品牌页面，选择最适合你项目的图标方案。</p>
+</header>
+
+<div class="whh_container">
+
+  <div class="whh_cards">
+
+    <a href="iconfont-1.html" class="whh_card whh_card--fa">
+      <div class="whh_card-icon">
+        <i class="fa-solid fa-font"></i>
+      </div>
+      <h2>Font Awesome</h2>
+      <div class="whh_card-subtitle">字体图标方案 · Font Icon</div>
+      <p>基于 CSS @font-face 的字体图标方案，通过 Unicode 字符渲染矢量图标。支持自定义颜色与尺寸，兼容性优秀。</p>
+      <div class="whh_card-tags">
+        <span class="whh_tag">字体图标</span>
+        <span class="whh_tag">fa-solid</span>
+        <span class="whh_tag">fa-regular</span>
+        <span class="whh_tag">fa-brands</span>
+      </div>
+      <div class="whh_card-link">
+        查看展示 <i class="fa-solid fa-arrow-right"></i>
+      </div>
+    </a>
+
+    <a href="iconfont-2.html" class="whh_card whh_card--lucide">
+      <div class="whh_card-icon">
+        <i class="fa-solid fa-vector-square"></i>
+      </div>
+      <h2>Lucide</h2>
+      <div class="whh_card-subtitle">SVG 图标方案 · Inline SVG</div>
+      <p>基于内联 SVG 的矢量图标方案，通过 lucide.createIcons() 渲染像素级清晰图标。支持自定义描边宽度与样式。</p>
+      <div class="whh_card-tags">
+        <span class="whh_tag">SVG 图标</span>
+        <span class="whh_tag">data-lucide</span>
+        <span class="whh_tag">createIcons</span>
+        <span class="whh_tag">可定制描边</span>
+      </div>
+      <div class="whh_card-link">
+        查看展示 <i class="fa-solid fa-arrow-right"></i>
+      </div>
+    </a>
+
+    <a href="iconfont-3.html" class="whh_card whh_card--tabbar-font">
+      <div class="whh_card-icon">
+        <i class="fa-solid fa-mobile-screen-button"></i>
+      </div>
+      <h2>移动端导航 · 字体图标</h2>
+      <div class="whh_card-subtitle">iconfont-3.html · Font Icon Tabbar</div>
+      <p>基于 iconfont 字体图标的移动端固定底部导航，4 个导航项，含红点与数字徽章，自适应宽度。</p>
+      <div class="whh_card-tags">
+        <span class="whh_tag">底部导航</span>
+        <span class="whh_tag">字体图标</span>
+        <span class="whh_tag">红点徽章</span>
+        <span class="whh_tag">数字徽章</span>
+      </div>
+      <div class="whh_card-link">
+        查看展示 <i class="fa-solid fa-arrow-right"></i>
+      </div>
+    </a>
+
+    <a href="iconfont-4.html" class="whh_card whh_card--tabbar-svg">
+      <div class="whh_card-icon">
+        <i class="fa-solid fa-layer-group"></i>
+      </div>
+      <h2>移动端导航 · SVG 图标</h2>
+      <div class="whh_card-subtitle">iconfont-4.html · SVG Symbol Tabbar</div>
+      <p>基于 iconfont SVG Symbol 的移动端固定底部导航，4 个导航项，含红点与数字徽章，自适应宽度。</p>
+      <div class="whh_card-tags">
+        <span class="whh_tag">底部导航</span>
+        <span class="whh_tag">SVG 图标</span>
+        <span class="whh_tag">红点徽章</span>
+        <span class="whh_tag">数字徽章</span>
+      </div>
+      <div class="whh_card-link">
+        查看展示 <i class="fa-solid fa-arrow-right"></i>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="whh_feature-row">
+    <div class="whh_feature">
+      <i class="fa-solid fa-palette"></i>
+      <h3>艺术品牌风格</h3>
+      <p>渐变背景、玻璃拟态卡片、流光悬停效果，打造高级视觉体验</p>
+    </div>
+    <div class="whh_feature">
+      <i class="fa-solid fa-bolt"></i>
+      <h3>本地 CDN 资源</h3>
+      <p>所有图标库资源已下载至 cdn 目录，离线可用，无需网络请求</p>
+    </div>
+    <div class="whh_feature">
+      <i class="fa-solid fa-mobile-screen"></i>
+      <h3>响应式布局</h3>
+      <p>自适应网格布局，适配桌面、平板与手机等多种屏幕尺寸</p>
+    </div>
+  </div>
+
+</div>
+
+<footer class="whh_footer">
+  <p>IconFont Gallery · Font Awesome 6.5.1 &amp; Lucide 0.460.0</p>
+</footer>
+
+</body>
+</html>

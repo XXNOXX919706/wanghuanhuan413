@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>腾讯动漫-排行榜</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- 姓名：王欢欢 学号：24002120413 -->
+</head>
+<body>
+    <header class="wang_header">
+        <div class="wang_header_box">
+            <h1 class="wang_header_title">热门排行榜</h1>
+        </div>
+    </header>
+
+    <!-- 榜单选项卡 -->
+    <section class="wang_rank_tab_wrap">
+        <div class="wang_rank_tab_list">
+            <div class="wang_rank_tab_item wang_rank_tab_active">人气榜</div>
+            <div class="wang_rank_tab_item">新作榜</div>
+            <div class="wang_rank_tab_item">收藏榜</div>
+        </div>
+    </section>
+
+    <!-- 人气榜：颁奖台区域（金银铜牌奖杯+阶梯底座） -->
+    <section class="wang_rank_wrap">
+        <div class="wang_section_title">实时人气排行榜</div>
+
+        <div class="wang_podium_box">
+            <div class="wang_podium_top">
+                <!-- 亚军 榜2 左侧 -->
+                <div class="wang_podium_item wang_podium_2">
+                    <div class="wang_medal">🥈</div>
+                    <div class="wang_podium_img">
+                        <img src="./1.lp翅膀.jpg" src="" alt="溺爱">
+                    </div>
+                    <div class="wang_podium_name" id="podium_name_2"></div>
+                    <div class="wang_podium_tag" id="podium_tag_2"></div>
+                    <!-- 阶梯底座 -->
+                    <div class="wang_podium_base base-silver">亚军台</div>
+                </div>
+
+                <!-- 冠军 榜1 中间（最高） -->
+                <div class="wang_podium_item wang_podium_1">
+                    <div class="wang_medal">🏆</div>
+                    <div class="wang_podium_img">
+                        <img src="./9.lp红床双人.jpg" src="" alt="没有你是漫长雨季">
+                    </div>
+                    <div class="wang_podium_name" id="podium_name_1"></div>
+                    <div class="wang_podium_tag" id="podium_tag_1"></div>
+                    <!-- 阶梯底座 -->
+                    <div class="wang_podium_base base-gold">冠军台</div>
+                </div>
+
+                <!-- 季军 榜3 右侧 -->
+                <div class="wang_podium_item wang_podium_3">
+                    <div class="wang_medal">🥉</div>
+                    <div class="wang_podium_img">
+                        <img src="./11.囚于永夜.jpg" src="" alt="囚于永夜">
+                    </div>
+                    <div class="wang_podium_name" id="podium_name_3"></div>
+                    <div class="wang_podium_tag" id="podium_tag_3"></div>
+                    <!-- 阶梯底座 -->
+                    <div class="wang_podium_base base-bronze">季军台</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4-10名榜单 -->
+       
+        <div id="wang_rank_list" class="wang_rank_list">
+            <!-- fetch加载rank.json渲染4~10名 -->
+        </div>
+    </section>
+
+    <!-- 同类作品精选推荐 -->
+    <section class="wang_recommend_wrap">
+        <div class="wang_section_title">作品精选推荐</div>
+        <div class="wang_recommend_list">
+            <div class="wang_comic_card">
+                <div class="wang_comic_card_img">
+                    <img src="./10.一屋暗灯.jpg" alt="一屋暗灯">
+                </div>
+                <p class="wang_comic_card_name">一屋暗灯</p>
+                <p class="wang_comic_card_tag">玄幻 / 异人</p>
+            </div>
+            <div class="wang_comic_card">
+                <div class="wang_comic_card_img">
+                    <img src="./3.放学等我.jpg" alt="放学等我">
+                </div>
+                <p class="wang_comic_card_name">放学等我</p>
+                <p class="wang_comic_card_tag">玄幻 / 修仙</p>
+            </div>
+            <div class="wang_comic_card">
+                <div class="wang_comic_card_img">
+                    <img src="./12.lp雪地.jpg" alt="溺爱">
+                </div>
+                <p class="wang_comic_card_name">溺爱</p>
+                <p class="wang_comic_card_tag">热血 / 玄幻</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 榜单提示说明区域 -->
+    <section class="wang_rank_tips_wrap">
+        <div class="wang_rank_tips_box">
+            <p>📊 榜单每日0点更新，数据依据阅读量、点赞、收藏综合计算</p>
+            <p>点击漫画条目，可进入漫画详情页阅读，喜欢可以点击收藏</p>
+        </div>
+    </section>
+
+    <!-- 底部Tab导航 -->
+    <nav class="wang_tabbar">
+        <a href="./index.html" class="wang_tab_item">
+            <span class="wang_tab_icon">🏠</span>
+            <span class="wang_tab_text">首页</span>
+        </a>
+        <a href="./2.category.html" class="wang_tab_item">
+            <span class="wang_tab_icon">📂</span>
+            <span class="wang_tab_text">分类</span>
+        </a>
+        <a href="./3.rank.html" class="wang_tab_item wang_tab_active">
+            <span class="wang_tab_icon">🔥</span>
+            <span class="wang_tab_text">排行</span>
+        </a>
+        <a href="./4.comic_detail.html" class="wang_tab_item">
+            <span class="wang_tab_icon">👤</span>
+            <span class="wang_tab_text">我的</span>
+        </a>
+    </nav>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>

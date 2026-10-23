@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IconFont · Font Awesome 字体图标</title>
+<link rel="stylesheet" href="cdn/font-awesome/css/all.min.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --whh_bg-dark: #0f0c29;
+    --whh_bg-mid: #302b63;
+    --whh_bg-light: #24243e;
+    --whh_gold: #f9d423;
+    --whh_gold-deep: #e8a317;
+    --whh_text: #f0eef6;
+    --whh_text-muted: #a8a4c0;
+    --whh_card-bg: rgba(255, 255, 255, 0.06);
+    --whh_card-border: rgba(255, 255, 255, 0.12);
+    --whh_glow: rgba(249, 212, 35, 0.35);
+  }
+
+  body {
+    font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, var(--whh_bg-dark) 0%, var(--whh_bg-mid) 50%, var(--whh_bg-light) 100%);
+    color: var(--whh_text);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle at 20% 30%, rgba(249, 212, 35, 0.08), transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(120, 80, 220, 0.15), transparent 45%);
+    animation: whh_bgFloat 20s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  @keyframes whh_bgFloat {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-3%, 3%) scale(1.05); }
+  }
+
+  .whh_nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(20px);
+    background: rgba(15, 12, 41, 0.7);
+    border-bottom: 1px solid var(--whh_card-border);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .whh_logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .whh_logo i {
+    color: var(--whh_gold);
+    font-size: 1.8rem;
+    filter: drop-shadow(0 0 12px var(--whh_glow));
+  }
+
+  .whh_logo span {
+    background: linear-gradient(90deg, var(--whh_gold), #fff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .whh_nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
+
+  .whh_nav-links a {
+    color: var(--whh_text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+  }
+
+  .whh_nav-links a:hover { color: var(--whh_gold); }
+
+  .whh_hero {
+    text-align: center;
+    padding: 5rem 2rem 3rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .whh_hero-badge {
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
+    border: 1px solid var(--whh_gold);
+    border-radius: 999px;
+    color: var(--whh_gold);
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .whh_hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .whh_hero h1 .whh_gradient-text {
+    background: linear-gradient(135deg, var(--whh_gold) 0%, #ff6b9d 50%, #6c5ce7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .whh_hero p {
+    font-size: 1.15rem;
+    color: var(--whh_text-muted);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+
+  .whh_hero-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    font-size: 2.5rem;
+  }
+
+  .whh_hero-icons i {
+    color: var(--whh_gold);
+    filter: drop-shadow(0 0 20px var(--whh_glow));
+    animation: whh_iconFloat 3s ease-in-out infinite;
+  }
+
+  .whh_hero-icons i:nth-child(2) { animation-delay: 0.3s; }
+  .whh_hero-icons i:nth-child(3) { animation-delay: 0.6s; }
+  .whh_hero-icons i:nth-child(4) { animation-delay: 0.9s; }
+  .whh_hero-icons i:nth-child(5) { animation-delay: 1.2s; }
+
+  @keyframes whh_iconFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .whh_container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .whh_section-title {
+    text-align: center;
+    margin: 3rem 0 2rem;
+  }
+
+  .whh_section-title h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .whh_section-title p {
+    color: var(--whh_text-muted);
+  }
+
+  .whh_category-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .whh_tab {
+    padding: 0.6rem 1.5rem;
+    background: var(--whh_card-bg);
+    border: 1px solid var(--whh_card-border);
+    border-radius: 999px;
+    color: var(--whh_text-muted);
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .whh_tab:hover, .whh_tab.whh_active {
+    background: linear-gradient(135deg, var(--whh_gold), var(--whh_gold-deep));
+    color: #1a1a2e;
+    border-color: var(--whh_gold);
+    box-shadow: 0 4px 20px var(--whh_glow);
+    transform: translateY(-2px);
+  }
+
+  .whh_icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .whh_icon-card {
+    background: var(--whh_card-bg);
+    border: 1px solid var(--whh_card-border);
+    border-radius: 16px;
+    padding: 1.75rem 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .whh_icon-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(249, 212, 35, 0.1), transparent);
+    transition: left 0.5s;
+  }
+
+  .whh_icon-card:hover::before { left: 100%; }
+
+  .whh_icon-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    border-color: var(--whh_gold);
+    box-shadow: 0 12px 40px rgba(249, 212, 35, 0.2);
+  }
+
+  .whh_icon-card i {
+    font-size: 2.5rem;
+    color: var(--whh_gold);
+    margin-bottom: 0.75rem;
+    display: block;
+    transition: transform 0.3s;
+  }
+
+  .whh_icon-card:hover i {
+    transform: scale(1.15) rotate(-5deg);
+  }
+
+  .whh_icon-name {
+    font-size: 0.8rem;
+    color: var(--whh_text-muted);
+    word-break: break-all;
+    line-height: 1.3;
+  }
+
+  .whh_icon-card:hover .whh_icon-name {
+    color: var(--whh_text);
+  }
+
+  .whh_hidden { display: none !important; }
+
+  .whh_footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+    border-top: 1px solid var(--whh_card-border);
+    color: var(--whh_text-muted);
+    position: relative;
+    z-index: 1;
+  }
+
+  .whh_footer a {
+    color: var(--whh_gold);
+    text-decoration: none;
+  }
+
+  .whh_back-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.6rem 1.5rem;
+    border: 1px solid var(--whh_gold);
+    border-radius: 999px;
+    color: var(--whh_gold);
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .whh_back-home:hover {
+    background: var(--whh_gold);
+    color: #1a1a2e;
+    box-shadow: 0 4px 20px var(--whh_glow);
+  }
+
+  @media (max-width: 640px) {
+    .whh_hero { padding: 3rem 1rem 2rem; }
+    .whh_container { padding: 1rem; }
+    .whh_icon-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 0.75rem; }
+    .whh_icon-card { padding: 1.25rem 0.5rem; }
+    .whh_icon-card i { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="whh_nav">
+  <div class="whh_logo">
+    <i class="fa-solid fa-gem"></i>
+    <span>IconFont Gallery</span>
+  </div>
+  <ul class="whh_nav-links">
+    <li><a href="#solid">实心图标</a></li>
+    <li><a href="#regular">线性图标</a></li>
+    <li><a href="#brands">品牌图标</a></li>
+  </ul>
+</nav>
+
+<header class="whh_hero">
+  <div class="whh_hero-badge">Font Awesome 6 · 字体图标方案</div>
+  <h1>优雅的 <span class="whh_gradient-text">字体图标</span><br>艺术展示</h1>
+  <p>基于 Font Awesome 字体图标的艺术品牌展示页，通过 CSS 字体渲染呈现精美矢量图标，支持自定义颜色与尺寸。</p>
+  <div class="whh_hero-icons">
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-heart"></i>
+    <i class="fa-solid fa-bolt"></i>
+    <i class="fa-solid fa-crown"></i>
+    <i class="fa-solid fa-rocket"></i>
+  </div>
+</header>
+
+<div class="whh_container">
+
+  <div class="whh_section-title" id="solid">
+    <h2><i class="fa-solid fa-cube" style="color:var(--whh_gold)"></i> Solid 实心图标</h2>
+    <p>实心填充风格图标，适合强调与高亮场景</p>
+  </div>
+
+  <div class="whh_category-tabs">
+    <div class="whh_tab whh_active" data-whh_filter="all">全部</div>
+    <div class="whh_tab" data-whh_filter="ui">界面</div>
+    <div class="whh_tab" data-whh_filter="media">媒体</div>
+    <div class="whh_tab" data-whh_filter="nature">自然</div>
+    <div class="whh_tab" data-whh_filter="social">社交</div>
+  </div>
+
+  <div class="whh_icon-grid" id="whh_grid_solid">
+    <div class="whh_icon-card" data-whh_cat="ui"><i class="fa-solid fa-house"></i><div class="whh_icon-name">fa-house</div></div>
+    <div class="whh_icon-card" data-whh_cat="ui"><i class="fa-solid fa-user"></i><div class="whh_icon-name">fa-user</div></div>
+    <div class="whh_icon-card" data-whh_cat="ui"><i class="fa-solid fa-gear"></i><div class="whh_icon-name">fa-gear</div></div>
+    <div class="whh_icon-card" data-whh_cat="ui"><i class="fa-solid fa-magnifying-glass"></i><div class="whh_icon-name">fa-magnifying-glass</div></div>
+    <div class="whh_icon-card" data-whh_cat="ui"><i class="fa-solid fa-bell"></i><div class="whh_icon-name">fa-bell</div></div>
+    <div class="whh_icon-card" data-whh_cat="ui"><i class="fa-solid fa-envelope"></i><div class="whh_icon-name">fa-envelope</div></div>
+    <div class="whh_icon-card" data-whh_cat="ui"><i class="fa-solid fa-lock"></i><div class="whh_icon-name">fa-lock</div></div>
+    <div class="whh_icon-card" data-whh_cat="ui"><i class="fa-solid fa-cart-shopping"></i><div class="whh_icon-name">fa-cart-shopping</div></div>
+    <div class="whh_icon-card" data-whh_cat="media"><i class="fa-solid fa-play"></i><div class="whh_icon-name">fa-play</div></div>
+    <div class="whh_icon-card" data-whh_cat="media"><i class="fa-solid fa-pause"></i><div class="whh_icon-name">fa-pause</div></div>
+    <div class="whh_icon-card" data-whh_cat="media"><i class="fa-solid fa-stop"></i><div class="whh_icon-name">fa-stop</div></div>
+    <div class="whh_icon-card" data-whh_cat="media"><i class="fa-solid fa-volume-high"></i><div class="whh_icon-name">fa-volume-high</div></div>
+    <div class="whh_icon-card" data-whh_cat="media"><i class="fa-solid fa-camera"></i><div class="whh_icon-name">fa-camera</div></div>
+    <div class="whh_icon-card" data-whh_cat="media"><i class="fa-solid fa-image"></i><div class="whh_icon-name">fa-image</div></div>
+    <div class="whh_icon-card" data-whh_cat="media"><i class="fa-solid fa-music"></i><div class="whh_icon-name">fa-music</div></div>
+    <div class="whh_icon-card" data-whh_cat="media"><i class="fa-solid fa-film"></i><div class="whh_icon-name">fa-film</div></div>
+    <div class="whh_icon-card" data-whh_cat="nature"><i class="fa-solid fa-leaf"></i><div class="whh_icon-name">fa-leaf</div></div>
+    <div class="whh_icon-card" data-whh_cat="nature"><i class="fa-solid fa-tree"></i><div class="whh_icon-name">fa-tree</div></div>
+    <div class="whh_icon-card" data-whh_cat="nature"><i class="fa-solid fa-sun"></i><div class="whh_icon-name">fa-sun</div></div>
+    <div class="whh_icon-card" data-whh_cat="nature"><i class="fa-solid fa-moon"></i><div class="whh_icon-name">fa-moon</div></div>
+    <div class="whh_icon-card" data-whh_cat="nature"><i class="fa-solid fa-cloud"></i><div class="whh_icon-name">fa-cloud</div></div>
+    <div class="whh_icon-card" data-whh_cat="nature"><i class="fa-solid fa-droplet"></i><div class="whh_icon-name">fa-droplet</div></div>
+    <div class="whh_icon-card" data-whh_cat="social"><i class="fa-solid fa-heart"></i><div class="whh_icon-name">fa-heart</div></div>
+    <div class="whh_icon-card" data-whh_cat="social"><i class="fa-solid fa-star"></i><div class="whh_icon-name">fa-star</div></div>
+    <div class="whh_icon-card" data-whh_cat="social"><i class="fa-solid fa-thumbs-up"></i><div class="whh_icon-name">fa-thumbs-up</div></div>
+    <div class="whh_icon-card" data-whh_cat="social"><i class="fa-solid fa-share-nodes"></i><div class="whh_icon-name">fa-share-nodes</div></div>
+    <div class="whh_icon-card" data-whh_cat="social"><i class="fa-solid fa-comment"></i><div class="whh_icon-name">fa-comment</div></div>
+    <div class="whh_icon-card" data-whh_cat="social"><i class="fa-solid fa-users"></i><div class="whh_icon-name">fa-users</div></div>
+  </div>
+
+  <div class="whh_section-title" id="regular">
+    <h2><i class="fa-regular fa-circle" style="color:var(--whh_gold)"></i> Regular 线性图标</h2>
+    <p>线性描边风格图标，轻盈简约</p>
+  </div>
+
+  <div class="whh_icon-grid">
+    <div class="whh_icon-card"><i class="fa-regular fa-heart"></i><div class="whh_icon-name">fa-heart</div></div>
+    <div class="whh_icon-card"><i class="fa-regular fa-star"></i><div class="whh_icon-name">fa-star</div></div>
+    <div class="whh_icon-card"><i class="fa-regular fa-user"></i><div class="whh_icon-name">fa-user</div></div>
+    <div class="whh_icon-card"><i class="fa-regular fa-envelope"></i><div class="whh_icon-name">fa-envelope</div></div>
+    <div class="whh_icon-card"><i class="fa-regular fa-bell"></i><div class="whh_icon-name">fa-bell</div></div>
+    <div class="whh_icon-card"><i class="fa-regular fa-calendar"></i><div class="whh_icon-name">fa-calendar</div></div>
+    <div class="whh_icon-card"><i class="fa-regular fa-clock"></i><div class="whh_icon-name">fa-clock</div></div>
+    <div class="whh_icon-card"><i class="fa-regular fa-image"></i><div class="whh_icon-name">fa-image</div></div>
+    <div class="whh_icon-card"><i class="fa-regular fa-folder"></i><div class="whh_icon-name">fa-folder</div></div>
+    <div class="whh_icon-card"><i class="fa-regular fa-file"></i><div class="whh_icon-name">fa-file</div></div>
+    <div class="whh_icon-card"><i class="fa-regular fa-bookmark"></i><div class="whh_icon-name">fa-bookmark</div></div>
+    <div class="whh_icon-card"><i class="fa-regular fa-thumbs-up"></i><div class="whh_icon-name">fa-thumbs-up</div></div>
+  </div>
+
+  <div class="whh_section-title" id="brands">
+    <h2><i class="fa-brands fa-font-awesome" style="color:var(--whh_gold)"></i> Brands 品牌图标</h2>
+    <p>知名品牌与社交平台图标</p>
+  </div>
+
+  <div class="whh_icon-grid">
+    <div class="whh_icon-card"><i class="fa-brands fa-github"></i><div class="whh_icon-name">fa-github</div></div>
+    <div class="whh_icon-card"><i class="fa-brands fa-twitter"></i><div class="whh_icon-name">fa-twitter</div></div>
+    <div class="whh_icon-card"><i class="fa-brands fa-facebook"></i><div class="whh_icon-name">fa-facebook</div></div>
+    <div class="whh_icon-card"><i class="fa-brands fa-instagram"></i><div class="whh_icon-name">fa-instagram</div></div>
+    <div class="whh_icon-card"><i class="fa-brands fa-linkedin"></i><div class="whh_icon-name">fa-linkedin</div></div>
+    <div class="whh_icon-card"><i class="fa-brands fa-youtube"></i><div class="whh_icon-name">fa-youtube</div></div>
+    <div class="whh_icon-card"><i class="fa-brands fa-weixin"></i><div class="whh_icon-name">fa-weixin</div></div>
+    <div class="whh_icon-card"><i class="fa-brands fa-alipay"></i><div class="whh_icon-name">fa-alipay</div></div>
+    <div class="whh_icon-card"><i class="fa-brands fa-apple"></i><div class="whh_icon-name">fa-apple</div></div>
+    <div class="whh_icon-card"><i class="fa-brands fa-windows"></i><div class="whh_icon-name">fa-windows</div></div>
+    <div class="whh_icon-card"><i class="fa-brands fa-linux"></i><div class="whh_icon-name">fa-linux</div></div>
+    <div class="whh_icon-card"><i class="fa-brands fa-android"></i><div class="whh_icon-name">fa-android</div></div>
+  </div>
+
+</div>
+
+<footer class="whh_footer">
+  <p>Font Awesome 6.5.1 · 字体图标方案 · <a href="iconfont-2.html">查看 Lucide SVG 方案 →</a></p>
+  <a href="index.html" class="whh_back-home"><i class="fa-solid fa-arrow-left"></i> 返回首页</a>
+</footer>
+
+<script>
+  const whh_tabs = document.querySelectorAll('.whh_tab');
+  const whh_cards = document.querySelectorAll('#whh_grid_solid .whh_icon-card');
+
+  whh_tabs.forEach(whh_tab => {
+    whh_tab.addEventListener('click', function() {
+      whh_tabs.forEach(t => t.classList.remove('whh_active'));
+      this.classList.add('whh_active');
+      const whh_filter = this.getAttribute('data-whh_filter');
+      whh_cards.forEach(whh_card => {
+        if (whh_filter === 'all' || whh_card.getAttribute('data-whh_cat') === whh_filter) {
+          whh_card.classList.remove('whh_hidden');
+        } else {
+          whh_card.classList.add('whh_hidden');
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

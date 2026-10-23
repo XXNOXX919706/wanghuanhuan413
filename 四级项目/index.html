@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>腾讯动漫-首页</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- 姓名：王欢欢 学号：24002120413 -->
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header class="wang_header">
+    <div class="wang_header_box">
+        <h1 class="wang_header_title">腾讯动漫</h1>
+        <a href="./6.%20search.html" id="wang_search_btn" class="wang_search_icon">🔍</a>
+    </div>
+</header>
+
+    <!-- 轮播Banner -->
+    <section id="wang_banner" class="wang_banner">
+        <div class="wang_banner_wrap">
+            <div class="wang_banner_list">
+                <div class="wang_banner_item">
+                    <div class="wang_banner_img">
+                        <img src="1.lp翅膀.jpg" alt="漫画banner">
+                    </div>
+                </div>
+                <div class="wang_banner_item">
+                    <div class="wang_banner_img">
+                        <img src="2.欲言难止.jpg" alt="漫画banner">
+                    </div>
+                </div>
+                <div class="wang_banner_item">
+                    <div class="wang_banner_img">
+                        <img src="5.暗河长明.jpg" alt="漫画banner">
+                    </div>
+                </div>
+            </div>
+            <div class="wang_banner_dot">
+                <span class="wang_dot active"></span>
+                <span class="wang_dot"></span>
+                <span class="wang_dot"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 推荐漫画区域，fetch加载mock数据 -->
+    <section class="wang_recommend">
+        <div class="wang_section_title">为你推荐</div>
+        <div id="wang_recommend_list" class="wang_comic_list">
+            <!-- JS通过fetch渲染漫画卡片 -->
+        </div>
+    </section>
+
+    <!-- 热门榜单入口 -->
+    <section class="wang_rank_entry">
+        <a href="./3.rank.html" class="wang_rank_link">查看完整排行榜 &gt;</a>
+    </section>
+    
+    <!-- 新增：榜单推荐6张漫画卡片 -->
+    <section class="wang_rank_card_section">
+        <div class="wang_section_title">榜单精选漫画</div>
+        <div class="wang_rank_card_list">
+            <!-- 卡片1 -->
+            <div class="wang_rank_card">
+                <div class="wang_rank_card_img">
+                    <img src="./3.放学等我.jpg" alt="放学等我">
+                </div>
+                <div class="wang_rank_card_text">
+                    <p class="wang_rank_card_name">放学等我</p>
+                    <p class="wang_rank_card_desc">陈景深 喜欢山还是喜欢海</p>
+                </div>
+                <div class="wang_rank_card_btn_group">
+                    <button class="wang_card_collect">收藏</button>
+                    <button class="wang_card_like">❤️喜欢</button>
+                </div>
+            </div>
+            <!-- 卡片2 -->
+            <div class="wang_rank_card">
+                <div class="wang_rank_card_img">
+                    <img src="./5.暗河长明.jpg" alt="暗河长明">
+                </div>
+                <div class="wang_rank_card_text">
+                    <p class="wang_rank_card_name">暗河长明</p>
+                    <p class="wang_rank_card_desc">“以后可以一起去吃牛肉拉面吗？”</p>
+                </div>
+                <div class="wang_rank_card_btn_group">
+                    <button class="wang_card_collect">收藏</button>
+                    <button class="wang_card_like">❤️喜欢</button>
+                </div>
+            </div>
+            <!-- 卡片3 -->
+            <div class="wang_rank_card">
+                <div class="wang_rank_card_img">
+                    <img src="./1.lp翅膀.jpg" alt="逆爱">
+                </div>
+                <div class="wang_rank_card_text">
+                    <p class="wang_rank_card_name">没有你是漫长雨季</p>
+                    <p class="wang_rank_card_desc">谁都可以生我的气就你不行</p>
+                </div>
+                <div class="wang_rank_card_btn_group">
+                    <button class="wang_card_collect">收藏</button>
+                    <button class="wang_card_like">❤️喜欢</button>
+                </div>
+            </div>
+            <!-- 卡片4 -->
+            <div class="wang_rank_card">
+                <div class="wang_rank_card_img">
+                    <img src="./2.欲言难止.jpg" alt="欲言难止">
+                </div>
+                <div class="wang_rank_card_text">
+                    <p class="wang_rank_card_name">欲言难止</p>
+                    <p class="wang_rank_card_desc">17朵洋桔梗，送给最爱的17号</p>
+                </div>
+                <div class="wang_rank_card_btn_group">
+                    <button class="wang_card_collect">收藏</button>
+                    <button class="wang_card_like">❤️喜欢</button>
+                </div>
+            </div>
+            <!-- 卡片5 -->
+            <div class="wang_rank_card">
+                <div class="wang_rank_card_img">
+                    <img src="./11.囚于永夜.jpg" alt="囚于永夜">
+                </div>
+                <div class="wang_rank_card_text">
+                    <p class="wang_rank_card_name">囚于永夜</p>
+                    <p class="wang_rank_card_desc">永远太飘渺了，在一起一辈子吧</p>
+                </div>
+                <div class="wang_rank_card_btn_group">
+                    <button class="wang_card_collect">收藏</button>
+                    <button class="wang_card_like">❤️喜欢</button>
+                </div>
+            </div>
+            <!-- 卡片6 -->
+            <div class="wang_rank_card">
+                <div class="wang_rank_card_img">
+                    <img src="./10.一屋暗灯.jpg" alt="一屋暗灯">
+                </div>
+                <div class="wang_rank_card_text">
+                    <p class="wang_rank_card_name">一屋暗灯</p>
+                    <p class="wang_rank_card_desc">他承诺给你的，我来做</p>
+                </div>
+                <div class="wang_rank_card_btn_group">
+                    <button class="wang_card_collect">收藏</button>
+                    <button class="wang_card_like">❤️喜欢</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- 返回顶部按钮 -->
+    <button id="wang_backtop" class="wang_backtop">↑</button>
+
+    <!-- 底部备案信息 -->
+    <section class="wang_footer">
+        <div class="wang_footer_box">
+            <p class="wang_footer_title">动漫网站</p>
+            <p class="wang_footer_contact">联系电话：138-0000-0000</p>
+            <p class="wang_footer_email">邮箱：demo@example.com</p>
+            <p class="wang_footer_icp">备案号：辽ICP备2026000000号</p>
+            <p class="wang_footer_copyright">Copyright © 2026 版权所有</p>
+            <p class="wang_footer_tips">本网站仅为课程作业演示，非真实商业网站</p>
+        </div>
+    </section>
+
+    <!-- 底部Tab导航（只保留一份） -->
+    <nav class="wang_tabbar">
+        <a href="./index.html" class="wang_tab_item wang_tab_active">
+            <span class="wang_tab_icon">🏠</span>
+            <span class="wang_tab_text">首页</span>
+        </a>
+        <a href="./2.category.html" class="wang_tab_item">
+            <span class="wang_tab_icon">📂</span>
+            <span class="wang_tab_text">分类</span>
+        </a>
+        <a href="./3.rank.html" class="wang_tab_item">
+            <span class="wang_tab_icon">🔥</span>
+            <span class="wang_tab_text">排行</span>
+        </a>
+        <a href="./4.comic_detail.html" class="wang_tab_item">
+            <span class="wang_tab_icon">👤</span>
+            <span class="wang_tab_text">我的</span>
+        </a>
+    </nav>
+    
+    <script src="./js/script.js"></script>
+    
+</body>
+</html>

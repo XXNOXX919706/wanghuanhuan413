@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>移动端下导航 · SVG 图标</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --whh_bg-dark: #0c0a1f;
+    --whh_bg-mid: #1a1445;
+    --whh_bg-light: #2a1f5c;
+    --whh_teal: #4fd1c5;
+    --whh_teal-deep: #38b2ac;
+    --whh_text: #f0eef6;
+    --whh_text-muted: #a8a4c0;
+    --whh_card-bg: rgba(255, 255, 255, 0.06);
+    --whh_card-border: rgba(255, 255, 255, 0.12);
+    --whh_red: #ff4757;
+  }
+
+  body {
+    font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, var(--whh_bg-dark) 0%, var(--whh_bg-mid) 50%, var(--whh_bg-light) 100%);
+    color: var(--whh_text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* 移动端容器：自适应宽度，最大 480px 居中 */
+  .whh_mobile {
+    width: 100%;
+    max-width: 480px;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #1a1445 0%, #0c0a1f 100%);
+    position: relative;
+    padding-bottom: 70px;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
+  }
+
+  /* 顶部状态栏 */
+  .whh_statusbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    font-size: 14px;
+    color: var(--whh_text);
+    font-weight: 600;
+  }
+
+  .whh_statusbar-right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+  }
+
+  /* 头部 */
+  .whh_header {
+    padding: 10px 20px 20px;
+    text-align: center;
+  }
+
+  .whh_header h1 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--whh_teal), #fff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .whh_header p {
+    font-size: 0.8rem;
+    color: var(--whh_text-muted);
+    margin-top: 4px;
+  }
+
+  /* 内容卡片 */
+  .whh_content {
+    padding: 0 20px;
+  }
+
+  .whh_card {
+    background: var(--whh_card-bg);
+    border: 1px solid var(--whh_card-border);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+    backdrop-filter: blur(10px);
+  }
+
+  .whh_card h2 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: var(--whh_teal);
+  }
+
+  .whh_card p {
+    font-size: 0.85rem;
+    color: var(--whh_text-muted);
+    line-height: 1.6;
+  }
+
+  .whh_tag {
+    display: inline-block;
+    padding: 2px 8px;
+    background: rgba(79, 209, 197, 0.15);
+    border: 1px solid rgba(79, 209, 197, 0.3);
+    border-radius: 4px;
+    font-size: 0.7rem;
+    color: var(--whh_teal);
+    margin-right: 6px;
+  }
+
+  /* SVG 图标通用样式 */
+  .whh_icon-svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    vertical-align: middle;
+    transition: transform 0.25s, color 0.25s;
+  }
+
+  /* 底部导航 —— 固定 + 自适应宽度 */
+  .whh_tabbar {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 480px;
+    height: 60px;
+    background: rgba(12, 10, 31, 0.92);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid var(--whh_card-border);
+    display: flex;
+    z-index: 100;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .whh_tab-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    color: var(--whh_text-muted);
+    transition: color 0.25s;
+  }
+
+  .whh_tab-item .whh_icon-wrapper {
+    margin-bottom: 2px;
+    transition: transform 0.25s;
+  }
+
+  .whh_tab-item .whh_tab-label {
+    font-size: 11px;
+    transition: color 0.25s;
+  }
+
+  .whh_tab-item.whh_active {
+    color: var(--whh_teal);
+  }
+
+  .whh_tab-item.whh_active .whh_icon-wrapper {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 8px rgba(79, 209, 197, 0.5));
+  }
+
+  .whh_tab-item:active .whh_icon-wrapper {
+    transform: scale(0.9);
+  }
+
+  /* 红点徽章 */
+  .whh_badge-dot {
+    position: absolute;
+    top: 10px;
+    right: calc(50% - 18px);
+    width: 8px;
+    height: 8px;
+    background: var(--whh_red);
+    border-radius: 50%;
+    box-shadow: 0 0 6px var(--whh_red);
+    animation: whh_pulse 1.5s ease-in-out infinite;
+  }
+
+  /* 数字徽章 */
+  .whh_badge-num {
+    position: absolute;
+    top: 6px;
+    right: calc(50% - 22px);
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    background: var(--whh_red);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 16px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(255, 71, 87, 0.5);
+  }
+
+  @keyframes whh_pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.3); }
+  }
+
+  /* 底部安全区 */
+  .whh_safe-area {
+    height: env(safe-area-inset-bottom, 0);
+  }
+</style>
+</head>
+<body>
+
+<div class="whh_mobile">
+
+  <!-- 状态栏 -->
+  <div class="whh_statusbar">
+    <span>9:41</span>
+    <div class="whh_statusbar-right">
+      <span>📶</span>
+      <span>🔋</span>
+    </div>
+  </div>
+
+  <!-- 头部 -->
+  <header class="whh_header">
+    <h1>IconFont · SVG 图标导航</h1>
+    <p>基于 iconfont SVG Symbol 的移动端底部导航</p>
+  </header>
+
+  <!-- 内容区 -->
+  <main class="whh_content">
+    <div class="whh_card">
+      <h2>当前选中：喜欢</h2>
+      <p>这是一个移动端固定底部导航示例，使用 <span class="whh_tag">SVG 图标</span> 方式渲染。导航包含 4 个项目，支持红点和数字徽章提示。</p>
+    </div>
+
+    <div class="whh_card">
+      <h2>导航项说明</h2>
+      <p>
+        <span class="whh_tag">红点</span> 电话图标右上角有红点提示<br><br>
+        <span class="whh_tag">数字 9</span> 收藏图标右上角显示数字徽章<br><br>
+        <span class="whh_tag">数字 99+</span> 搜索图标右上角显示溢出数字徽章
+      </p>
+    </div>
+
+    <div class="whh_card">
+      <h2>SVG 图标方案</h2>
+      <p>通过 <code>&lt;svg&gt;&lt;use xlink:href="#icon-xxx"&gt;&lt;/use&gt;&lt;/svg&gt;</code> 引用 SVG Symbol，由 iconfont.js 注入符号定义。使用 <code>fill: currentColor</code> 继承文字颜色。</p>
+    </div>
+  </main>
+
+  <div class="whh_safe-area"></div>
+</div>
+
+<!-- 底部固定导航 -->
+<nav class="whh_tabbar">
+  <div class="whh_tab-item" data-whh_tab="phone">
+    <span class="whh_icon-wrapper">
+      <svg class="whh_icon-svg" aria-hidden="true"><use xlink:href="#icon-dianhua-copy"></use></svg>
+    </span>
+    <span class="whh_tab-label">电话</span>
+    <span class="whh_badge-dot"></span>
+  </div>
+
+  <div class="whh_tab-item" data-whh_tab="favorite">
+    <span class="whh_icon-wrapper">
+      <svg class="whh_icon-svg" aria-hidden="true"><use xlink:href="#icon-shoucang"></use></svg>
+    </span>
+    <span class="whh_tab-label">收藏</span>
+    <span class="whh_badge-num">9</span>
+  </div>
+
+  <div class="whh_tab-item whh_active" data-whh_tab="like">
+    <span class="whh_icon-wrapper">
+      <svg class="whh_icon-svg" aria-hidden="true"><use xlink:href="#icon-xihuan"></use></svg>
+    </span>
+    <span class="whh_tab-label">喜欢</span>
+  </div>
+
+  <div class="whh_tab-item" data-whh_tab="search">
+    <span class="whh_icon-wrapper">
+      <svg class="whh_icon-svg" aria-hidden="true"><use xlink:href="#icon-sousuo"></use></svg>
+    </span>
+    <span class="whh_tab-label">搜索</span>
+    <span class="whh_badge-num">99+</span>
+  </div>
+</nav>
+
+<!-- iconfont SVG Symbol 注入脚本 -->
+<script src="font/iconfont.js"></script>
+<script>
+  const whh_tabItems = document.querySelectorAll('.whh_tab-item');
+  whh_tabItems.forEach(function(whh_item) {
+    whh_item.addEventListener('click', function() {
+      whh_tabItems.forEach(function(t) { t.classList.remove('whh_active'); });
+      this.classList.add('whh_active');
+    });
+  });
+</script>
+
+</body>
+</html>
