@@ -1,0 +1,37 @@
+{
+  "id": "5231919",
+  "name": "web",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "48493368",
+      "name": "电话-copy",
+      "font_class": "dianhua-copy",
+      "unicode": "e796",
+      "unicode_decimal": 59286
+    },
+    {
+      "icon_id": "3863069",
+      "name": "收藏",
+      "font_class": "shoucang",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "9030999",
+      "name": "喜欢",
+      "font_class": "xihuan",
+      "unicode": "e643",
+      "unicode_decimal": 58947
+    },
+    {
+      "icon_id": "48426838",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e795",
+      "unicode_decimal": 59285
+    }
+  ]
+}
