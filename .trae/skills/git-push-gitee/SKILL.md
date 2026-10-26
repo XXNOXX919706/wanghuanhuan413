@@ -11,7 +11,7 @@ description: 将当前项目使用 git commit 并 push 到 Gitee 仓库。当用
 
 - **Gitee 私人令牌**: `5fd1d519f8fdf3a23356678dd23b555d`
 - **仓库地址**: `https://gitee.com/neusoft_wangyao_jsj/xxnoxx.git`
-- **带令牌的推送 URL**: `https://5fd1d519f8fdf3a23356678dd23b555d@gitee.com/neusoft_wangyao_jsj/xxnoxx.git`
+- **带令牌的推送 URL**: `https://oauth2:5fd1d519f8fdf3a23356678dd23b555d@gitee.com/neusoft_wangyao_jsj/xxnoxx.git`
 
 ## 执行步骤
 
@@ -51,9 +51,15 @@ git remote -v
   ```
   （如主分支为 `main`，则 `git push origin main`）
 
-- 若远程未配置或地址错误，使用带令牌的 URL 设置远程并推送：
+- 若远程未配置或地址错误，使用带令牌的 URL 设置远程并推送（Gitee 需使用 `oauth2` 作为用户名）：
   ```powershell
-  git remote set-url origin https://5fd1d519f8fdf3a23356678dd23b555d@gitee.com/neusoft_wangyao_jsj/xxnoxx.git
+  git remote set-url origin https://oauth2:5fd1d519f8fdf3a23356678dd23b555d@gitee.com/neusoft_wangyao_jsj/xxnoxx.git
+  git push origin master
+  ```
+
+- 若推送被拒绝（远程有本地没有的提交），先拉取合并不相关历史再推送：
+  ```powershell
+  git pull origin master --allow-unrelated-histories --no-edit
   git push origin master
   ```
 

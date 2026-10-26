@@ -6,6 +6,34 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "48390944",
+      "name": "049_联系人",
+      "font_class": "a-049_lianxiren",
+      "unicode": "e6d7",
+      "unicode_decimal": 59095
+    },
+    {
+      "icon_id": "48390952",
+      "name": "049_数据-27",
+      "font_class": "a-049_shuju-27",
+      "unicode": "e6d8",
+      "unicode_decimal": 59096
+    },
+    {
+      "icon_id": "48390962",
+      "name": "049_主页",
+      "font_class": "a-049_zhuye",
+      "unicode": "e6d9",
+      "unicode_decimal": 59097
+    },
+    {
+      "icon_id": "48390965",
+      "name": "049_文档",
+      "font_class": "a-049_wendang",
+      "unicode": "e6da",
+      "unicode_decimal": 59098
+    },
+    {
       "icon_id": "48493368",
       "name": "电话-copy",
       "font_class": "dianhua-copy",

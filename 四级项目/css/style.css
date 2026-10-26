@@ -165,9 +165,10 @@ ul,li{
     justify-content:center;
     font-size:12px;
 }
-.wang_tab_icon{
-    font-size:18px;
+.wang_tabbar .wang_tab_icon{
+    font-size:22px;
     margin-bottom:3px;
+    line-height:1;
 }
 .wang_tab_active{
     color:#ff4444;
