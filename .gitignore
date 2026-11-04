@@ -13,6 +13,19 @@ Thumbs.db
 .vscode/
 .idea/
 
+# Node.js 可执行文件（不提交到仓库）
+node.exe
+npm
+npx
+npm.cmd
+npx.cmd
+npm.ps1
+npx.ps1
+nodevars.bat
+corepack
+corepack.cmd
+install_tools.bat
+
 # 临时文件
 *.tmp
 *.swp
