@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!--
+  作者：wanghuanhuan0413
+  建立时间：2026-11-04
+  使用大模型：Trae
+  功能名称：汽车资讯Tab选项卡新闻列表
+-->
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>汽车资讯 - Tab选项卡</title>
+  <style>
+    /* wanghuanhuan0413 页面基础重置 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Microsoft YaHei", Arial, sans-serif;
+      background: #fff;
+      padding: 30px;
+    }
+
+    /* wanghuanhuan0413 外层容器 */
+    .whh_news-box {
+      width: 560px;
+      margin: 0 auto;
+    }
+
+    /* wanghuanhuan0413 tab 导航栏 */
+    .whh_tab-nav {
+      display: flex;
+      gap: 6px;
+      padding: 6px;
+      background: #f5f5f5;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+
+    /* wanghuanhuan0413 单个 tab 选项卡 */
+    .whh_tab-item {
+      flex: 1;
+      text-align: center;
+      padding: 8px 0;
+      font-size: 14px;
+      color: #333;
+      background: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+
+    .whh_tab-item:hover {
+      color: #1d5fad;
+    }
+
+    /* wanghuanhuan0413 tab 选中状态：深蓝色背景 + 白色文字 */
+    .whh_tab-item.whh_active {
+      background: #1d5fad;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    /* wanghuanhuan0413 新闻大标题 */
+    .whh_news-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #c00;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+
+    /* wanghuanhuan0413 新闻列表 */
+    .whh_news-list {
+      list-style: none;
+    }
+
+    /* wanghuanhuan0413 单条新闻 */
+    .whh_news-item {
+      display: flex;
+      align-items: center;
+      padding: 6px 0;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    /* wanghuanhuan0413 新闻前的红色圆点 */
+    .whh_news-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: #c00;
+      border-radius: 50%;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+
+    /* wanghuanhuan0413 新闻标题文字 */
+    .whh_news-text {
+      flex: 1;
+      color: #333;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    /* wanghuanhuan0413 新闻日期，右对齐 */
+    .whh_news-date {
+      color: #999;
+      margin-left: 10px;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- wanghuanhuan0413 汽车资讯 tab 模块 -->
+  <div class="whh_news-box">
+    <!-- wanghuanhuan0413 tab 选项卡导航 -->
+    <div class="whh_tab-nav">
+      <div class="whh_tab-item whh_active" data-index="0">导购</div>
+      <div class="whh_tab-item" data-index="1">3-9万</div>
+      <div class="whh_tab-item" data-index="2">9-17万</div>
+      <div class="whh_tab-item" data-index="3">17-42万</div>
+      <div class="whh_tab-item" data-index="4">SUV</div>
+    </div>
+
+    <!-- wanghuanhuan0413 新闻大标题（由 JS 动态渲染） -->
+    <h2 class="whh_news-title"></h2>
+
+    <!-- wanghuanhuan0413 新闻列表（由 JS 动态渲染） -->
+    <ul class="whh_news-list"></ul>
+  </div>
+
+  <!-- wanghuanhuan0413 外部引入 JS -->
+  <script src="js/news.js"></script>
+  <script>
+    // wanghuanhuan0413 初始化 tab，默认选中第一个（导购）
+    whh_initNewsTab('.whh_tab-nav', '.whh_news-title', '.whh_news-list', 0);
+  </script>
+</body>
+</html>
