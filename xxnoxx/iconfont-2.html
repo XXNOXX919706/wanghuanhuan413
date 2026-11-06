@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IconFont · Lucide SVG 图标</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --whh_bg-dark: #0c0a1f;
+    --whh_bg-mid: #1a1445;
+    --whh_bg-light: #2a1f5c;
+    --whh_gold: #4fd1c5;
+    --whh_gold-deep: #38b2ac;
+    --whh_text: #f0eef6;
+    --whh_text-muted: #a8a4c0;
+    --whh_card-bg: rgba(255, 255, 255, 0.06);
+    --whh_card-border: rgba(255, 255, 255, 0.12);
+    --whh_glow: rgba(79, 209, 197, 0.35);
+  }
+
+  body {
+    font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, var(--whh_bg-dark) 0%, var(--whh_bg-mid) 50%, var(--whh_bg-light) 100%);
+    color: var(--whh_text);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle at 80% 20%, rgba(79, 209, 197, 0.08), transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(167, 139, 250, 0.15), transparent 45%);
+    animation: whh_bgFloat 20s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  @keyframes whh_bgFloat {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(3%, -3%) scale(1.05); }
+  }
+
+  .whh_nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(20px);
+    background: rgba(12, 10, 31, 0.7);
+    border-bottom: 1px solid var(--whh_card-border);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .whh_logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .whh_logo svg {
+    width: 1.8rem; height: 1.8rem;
+    stroke: var(--whh_gold);
+    filter: drop-shadow(0 0 12px var(--whh_glow));
+  }
+
+  .whh_logo span {
+    background: linear-gradient(90deg, var(--whh_gold), #fff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .whh_nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
+
+  .whh_nav-links a {
+    color: var(--whh_text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+  }
+
+  .whh_nav-links a:hover { color: var(--whh_gold); }
+
+  .whh_hero {
+    text-align: center;
+    padding: 5rem 2rem 3rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .whh_hero-badge {
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
+    border: 1px solid var(--whh_gold);
+    border-radius: 999px;
+    color: var(--whh_gold);
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .whh_hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .whh_hero h1 .whh_gradient-text {
+    background: linear-gradient(135deg, var(--whh_gold) 0%, #6c5ce7 50%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .whh_hero p {
+    font-size: 1.15rem;
+    color: var(--whh_text-muted);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+
+  .whh_hero-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .whh_hero-icons svg {
+    width: 2.5rem; height: 2.5rem;
+    stroke: var(--whh_gold);
+    filter: drop-shadow(0 0 20px var(--whh_glow));
+    animation: whh_iconFloat 3s ease-in-out infinite;
+  }
+
+  .whh_hero-icons svg:nth-child(2) { animation-delay: 0.3s; }
+  .whh_hero-icons svg:nth-child(3) { animation-delay: 0.6s; }
+  .whh_hero-icons svg:nth-child(4) { animation-delay: 0.9s; }
+  .whh_hero-icons svg:nth-child(5) { animation-delay: 1.2s; }
+
+  @keyframes whh_iconFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .whh_container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .whh_section-title {
+    text-align: center;
+    margin: 3rem 0 2rem;
+  }
+
+  .whh_section-title h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .whh_section-title h2 svg {
+    width: 1.8rem; height: 1.8rem;
+    stroke: var(--whh_gold);
+  }
+
+  .whh_section-title p {
+    color: var(--whh_text-muted);
+  }
+
+  .whh_category-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .whh_tab {
+    padding: 0.6rem 1.5rem;
+    background: var(--whh_card-bg);
+    border: 1px solid var(--whh_card-border);
+    border-radius: 999px;
+    color: var(--whh_text-muted);
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .whh_tab:hover, .whh_tab.whh_active {
+    background: linear-gradient(135deg, var(--whh_gold), var(--whh_gold-deep));
+    color: #0c0a1f;
+    border-color: var(--whh_gold);
+    box-shadow: 0 4px 20px var(--whh_glow);
+    transform: translateY(-2px);
+  }
+
+  .whh_icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .whh_icon-card {
+    background: var(--whh_card-bg);
+    border: 1px solid var(--whh_card-border);
+    border-radius: 16px;
+    padding: 1.75rem 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .whh_icon-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(79, 209, 197, 0.1), transparent);
+    transition: left 0.5s;
+  }
+
+  .whh_icon-card:hover::before { left: 100%; }
+
+  .whh_icon-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    border-color: var(--whh_gold);
+    box-shadow: 0 12px 40px rgba(79, 209, 197, 0.2);
+  }
+
+  .whh_icon-card svg {
+    width: 2.5rem; height: 2.5rem;
+    stroke: var(--whh_gold);
+    margin: 0 auto 0.75rem;
+    display: block;
+    transition: transform 0.3s;
+  }
+
+  .whh_icon-card:hover svg {
+    transform: scale(1.15) rotate(-5deg);
+  }
+
+  .whh_icon-name {
+    font-size: 0.8rem;
+    color: var(--whh_text-muted);
+    word-break: break-all;
+    line-height: 1.3;
+  }
+
+  .whh_icon-card:hover .whh_icon-name {
+    color: var(--whh_text);
+  }
+
+  .whh_hidden { display: none !important; }
+
+  .whh_footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+    border-top: 1px solid var(--whh_card-border);
+    color: var(--whh_text-muted);
+    position: relative;
+    z-index: 1;
+  }
+
+  .whh_footer a {
+    color: var(--whh_gold);
+    text-decoration: none;
+  }
+
+  .whh_back-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.6rem 1.5rem;
+    border: 1px solid var(--whh_gold);
+    border-radius: 999px;
+    color: var(--whh_gold);
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .whh_back-home:hover {
+    background: var(--whh_gold);
+    color: #0c0a1f;
+    box-shadow: 0 4px 20px var(--whh_glow);
+  }
+
+  @media (max-width: 640px) {
+    .whh_hero { padding: 3rem 1rem 2rem; }
+    .whh_container { padding: 1rem; }
+    .whh_icon-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 0.75rem; }
+    .whh_icon-card { padding: 1.25rem 0.5rem; }
+    .whh_icon-card svg { width: 2rem; height: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="whh_nav">
+  <div class="whh_logo">
+    <i data-lucide="feather"></i>
+    <span>Lucide SVG Gallery</span>
+  </div>
+  <ul class="whh_nav-links">
+    <li><a href="#interface">界面图标</a></li>
+    <li><a href="#navigation">导航图标</a></li>
+    <li><a href="#brand">品牌图标</a></li>
+  </ul>
+</nav>
+
+<header class="whh_hero">
+  <div class="whh_hero-badge">Lucide 0.460.0 · SVG 图标方案</div>
+  <h1>轻盈的 <span class="whh_gradient-text">SVG 图标</span><br>艺术展示</h1>
+  <p>基于 Lucide 的 SVG 矢量图标方案，通过内联 SVG 渲染像素级清晰图标，支持自定义描边与填充。</p>
+  <div class="whh_hero-icons">
+    <i data-lucide="star"></i>
+    <i data-lucide="heart"></i>
+    <i data-lucide="zap"></i>
+    <i data-lucide="crown"></i>
+    <i data-lucide="rocket"></i>
+  </div>
+</header>
+
+<div class="whh_container">
+
+  <div class="whh_section-title" id="interface">
+    <h2><i data-lucide="layout-grid"></i> Interface 界面图标</h2>
+    <p>常用界面操作与控件图标</p>
+  </div>
+
+  <div class="whh_category-tabs">
+    <div class="whh_tab whh_active" data-whh_filter="all">全部</div>
+    <div class="whh_tab" data-whh_filter="action">操作</div>
+    <div class="whh_tab" data-whh_filter="status">状态</div>
+    <div class="whh_tab" data-whh_filter="file">文件</div>
+    <div class="whh_tab" data-whh_filter="communication">通讯</div>
+  </div>
+
+  <div class="whh_icon-grid" id="whh_grid_interface">
+    <div class="whh_icon-card" data-whh_cat="action"><i data-lucide="home"></i><div class="whh_icon-name">home</div></div>
+    <div class="whh_icon-card" data-whh_cat="action"><i data-lucide="user"></i><div class="whh_icon-name">user</div></div>
+    <div class="whh_icon-card" data-whh_cat="action"><i data-lucide="settings"></i><div class="whh_icon-name">settings</div></div>
+    <div class="whh_icon-card" data-whh_cat="action"><i data-lucide="search"></i><div class="whh_icon-name">search</div></div>
+    <div class="whh_icon-card" data-whh_cat="action"><i data-lucide="bell"></i><div class="whh_icon-name">bell</div></div>
+    <div class="whh_icon-card" data-whh_cat="action"><i data-lucide="menu"></i><div class="whh_icon-name">menu</div></div>
+    <div class="whh_icon-card" data-whh_cat="action"><i data-lucide="x"></i><div class="whh_icon-name">x</div></div>
+    <div class="whh_icon-card" data-whh_cat="action"><i data-lucide="check"></i><div class="whh_icon-name">check</div></div>
+    <div class="whh_icon-card" data-whh_cat="action"><i data-lucide="plus"></i><div class="whh_icon-name">plus</div></div>
+    <div class="whh_icon-card" data-whh_cat="action"><i data-lucide="minus"></i><div class="whh_icon-name">minus</div></div>
+    <div class="whh_icon-card" data-whh_cat="status"><i data-lucide="check-circle"></i><div class="whh_icon-name">check-circle</div></div>
+    <div class="whh_icon-card" data-whh_cat="status"><i data-lucide="alert-circle"></i><div class="whh_icon-name">alert-circle</div></div>
+    <div class="whh_icon-card" data-whh_cat="status"><i data-lucide="info"></i><div class="whh_icon-name">info</div></div>
+    <div class="whh_icon-card" data-whh_cat="status"><i data-lucide="alert-triangle"></i><div class="whh_icon-name">alert-triangle</div></div>
+    <div class="whh_icon-card" data-whh_cat="status"><i data-lucide="help-circle"></i><div class="whh_icon-name">help-circle</div></div>
+    <div class="whh_icon-card" data-whh_cat="status"><i data-lucide="clock"></i><div class="whh_icon-name">clock</div></div>
+    <div class="whh_icon-card" data-whh_cat="file"><i data-lucide="file"></i><div class="whh_icon-name">file</div></div>
+    <div class="whh_icon-card" data-whh_cat="file"><i data-lucide="folder"></i><div class="whh_icon-name">folder</div></div>
+    <div class="whh_icon-card" data-whh_cat="file"><i data-lucide="folder-open"></i><div class="whh_icon-name">folder-open</div></div>
+    <div class="whh_icon-card" data-whh_cat="file"><i data-lucide="image"></i><div class="whh_icon-name">image</div></div>
+    <div class="whh_icon-card" data-whh_cat="file"><i data-lucide="music"></i><div class="whh_icon-name">music</div></div>
+    <div class="whh_icon-card" data-whh_cat="file"><i data-lucide="video"></i><div class="whh_icon-name">video</div></div>
+    <div class="whh_icon-card" data-whh_cat="communication"><i data-lucide="mail"></i><div class="whh_icon-name">mail</div></div>
+    <div class="whh_icon-card" data-whh_cat="communication"><i data-lucide="message-circle"></i><div class="whh_icon-name">message-circle</div></div>
+    <div class="whh_icon-card" data-whh_cat="communication"><i data-lucide="phone"></i><div class="whh_icon-name">phone</div></div>
+    <div class="whh_icon-card" data-whh_cat="communication"><i data-lucide="send"></i><div class="whh_icon-name">send</div></div>
+    <div class="whh_icon-card" data-whh_cat="communication"><i data-lucide="share-2"></i><div class="whh_icon-name">share-2</div></div>
+    <div class="whh_icon-card" data-whh_cat="communication"><i data-lucide="at-sign"></i><div class="whh_icon-name">at-sign</div></div>
+  </div>
+
+  <div class="whh_section-title" id="navigation">
+    <h2><i data-lucide="compass"></i> Navigation 导航图标</h2>
+    <p>方向、箭头与导航控件</p>
+  </div>
+
+  <div class="whh_icon-grid">
+    <div class="whh_icon-card"><i data-lucide="arrow-left"></i><div class="whh_icon-name">arrow-left</div></div>
+    <div class="whh_icon-card"><i data-lucide="arrow-right"></i><div class="whh_icon-name">arrow-right</div></div>
+    <div class="whh_icon-card"><i data-lucide="arrow-up"></i><div class="whh_icon-name">arrow-up</div></div>
+    <div class="whh_icon-card"><i data-lucide="arrow-down"></i><div class="whh_icon-name">arrow-down</div></div>
+    <div class="whh_icon-card"><i data-lucide="chevron-left"></i><div class="whh_icon-name">chevron-left</div></div>
+    <div class="whh_icon-card"><i data-lucide="chevron-right"></i><div class="whh_icon-name">chevron-right</div></div>
+    <div class="whh_icon-card"><i data-lucide="chevron-up"></i><div class="whh_icon-name">chevron-up</div></div>
+    <div class="whh_icon-card"><i data-lucide="chevron-down"></i><div class="whh_icon-name">chevron-down</div></div>
+    <div class="whh_icon-card"><i data-lucide="external-link"></i><div class="whh_icon-name">external-link</div></div>
+    <div class="whh_icon-card"><i data-lucide="link"></i><div class="whh_icon-name">link</div></div>
+    <div class="whh_icon-card"><i data-lucide="map-pin"></i><div class="whh_icon-name">map-pin</div></div>
+    <div class="whh_icon-card"><i data-lucide="navigation"></i><div class="whh_icon-name">navigation</div></div>
+  </div>
+
+  <div class="whh_section-title" id="brand">
+    <h2><i data-lucide="sparkles"></i> Brand & Fun 品牌趣味图标</h2>
+    <p>品牌标识与趣味装饰图标</p>
+  </div>
+
+  <div class="whh_icon-grid">
+    <div class="whh_icon-card"><i data-lucide="github"></i><div class="whh_icon-name">github</div></div>
+    <div class="whh_icon-card"><i data-lucide="twitter"></i><div class="whh_icon-name">twitter</div></div>
+    <div class="whh_icon-card"><i data-lucide="facebook"></i><div class="whh_icon-name">facebook</div></div>
+    <div class="whh_icon-card"><i data-lucide="instagram"></i><div class="whh_icon-name">instagram</div></div>
+    <div class="whh_icon-card"><i data-lucide="linkedin"></i><div class="whh_icon-name">linkedin</div></div>
+    <div class="whh_icon-card"><i data-lucide="youtube"></i><div class="whh_icon-name">youtube</div></div>
+    <div class="whh_icon-card"><i data-lucide="heart"></i><div class="whh_icon-name">heart</div></div>
+    <div class="whh_icon-card"><i data-lucide="star"></i><div class="whh_icon-name">star</div></div>
+    <div class="whh_icon-card"><i data-lucide="thumbs-up"></i><div class="whh_icon-name">thumbs-up</div></div>
+    <div class="whh_icon-card"><i data-lucide="smile"></i><div class="whh_icon-name">smile</div></div>
+    <div class="whh_icon-card"><i data-lucide="gift"></i><div class="whh_icon-name">gift</div></div>
+    <div class="whh_icon-card"><i data-lucide="award"></i><div class="whh_icon-name">award</div></div>
+  </div>
+
+</div>
+
+<footer class="whh_footer">
+  <p>Lucide 0.460.0 · SVG 图标方案 · <a href="iconfont-1.html">查看 Font Awesome 字体方案 →</a></p>
+  <a href="index.html" class="whh_back-home"><i data-lucide="arrow-left" style="width:1rem;height:1rem"></i> 返回首页</a>
+</footer>
+
+<script src="cdn/lucide/lucide.min.js"></script>
+<script>
+  lucide.createIcons();
+
+  const whh_tabs = document.querySelectorAll('.whh_tab');
+  const whh_cards = document.querySelectorAll('#whh_grid_interface .whh_icon-card');
+
+  whh_tabs.forEach(whh_tab => {
+    whh_tab.addEventListener('click', function() {
+      whh_tabs.forEach(t => t.classList.remove('whh_active'));
+      this.classList.add('whh_active');
+      const whh_filter = this.getAttribute('data-whh_filter');
+      whh_cards.forEach(whh_card => {
+        if (whh_filter === 'all' || whh_card.getAttribute('data-whh_cat') === whh_filter) {
+          whh_card.classList.remove('whh_hidden');
+        } else {
+          whh_card.classList.add('whh_hidden');
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
