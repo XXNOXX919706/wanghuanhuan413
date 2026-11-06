@@ -1,0 +1,11 @@
+# 临时 git 备份目录
+.git_backup/
+xxnoxx/.git_backup/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
