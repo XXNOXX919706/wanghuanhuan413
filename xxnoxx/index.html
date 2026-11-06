@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="王欢欢的《高级网页设计》课堂实践目录">
     <title>高级网页设计 · 课堂实践</title>
-    <link rel="stylesheet" href="/font/iconfont.css">
+    <link rel="stylesheet" href="./font/iconfont.css">
     <style>
         :root {
             --ink: #1d2433;
@@ -321,12 +321,191 @@
                 flex-direction: column;
             }
         }
+
+        /* ===== BEGIN: 内联演示区通用样式 ===== */
+        .demo-section {
+            margin: 76px 0 0;
+        }
+
+        .demo-block {
+            margin-bottom: 40px;
+            padding: 28px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow);
+            border-radius: 8px;
+        }
+
+        .demo-block-title {
+            margin: 0 0 20px;
+            padding-bottom: 12px;
+            font-size: 18px;
+            border-bottom: 2px solid var(--coral);
+            color: var(--ink);
+        }
+        /* ===== END: 内联演示区通用样式 ===== */
+
+        /* ===== BEGIN: tab.html 样式（作用域：#whh-tab-demo） ===== */
+        #whh-tab-demo * {
+            box-sizing: border-box;
+        }
+
+        #whh-tab-demo .whh_tab-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        #whh-tab-demo .whh_tab-nav {
+            display: flex;
+            border-bottom: 2px solid #e0e0e0;
+            background: #fafafa;
+        }
+
+        #whh-tab-demo .whh_tab-item {
+            flex: 1;
+            padding: 14px 0;
+            text-align: center;
+            cursor: pointer;
+            font-size: 16px;
+            color: #666;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        #whh-tab-demo .whh_tab-item:hover {
+            color: #1890ff;
+            background: #f0f7ff;
+        }
+
+        #whh-tab-demo .whh_tab-item.whh_active {
+            color: #1890ff;
+            font-weight: bold;
+            border-bottom: 3px solid #1890ff;
+            background: #fff;
+        }
+
+        #whh-tab-demo .whh_tab-content {
+            padding: 30px;
+            min-height: 200px;
+        }
+
+        #whh-tab-demo .whh_tab-panel {
+            display: none;
+            font-size: 15px;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        #whh-tab-demo .whh_tab-panel.whh_active {
+            display: block;
+        }
+
+        #whh-tab-demo .whh_tab-panel h2 {
+            margin-bottom: 16px;
+            color: #1890ff;
+        }
+        /* ===== END: tab.html 样式 ===== */
+
+        /* ===== BEGIN: 课堂测试7 样式（作用域：#whh-news-demo） ===== */
+        #whh-news-demo * {
+            box-sizing: border-box;
+        }
+
+        #whh-news-demo .whh_news-box {
+            width: 560px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        #whh-news-demo .whh_tab-nav {
+            display: flex;
+            gap: 6px;
+            padding: 6px;
+            background: #f5f5f5;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            margin-bottom: 16px;
+        }
+
+        #whh-news-demo .whh_tab-item {
+            flex: 1;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 14px;
+            color: #333;
+            background: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.2s ease;
+        }
+
+        #whh-news-demo .whh_tab-item:hover {
+            color: #1d5fad;
+        }
+
+        #whh-news-demo .whh_tab-item.whh_active {
+            background: #1d5fad;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        #whh-news-demo .whh_news-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #c00;
+            margin-bottom: 14px;
+            line-height: 1.4;
+        }
+
+        #whh-news-demo .whh_news-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #whh-news-demo .whh_news-item {
+            display: flex;
+            align-items: center;
+            padding: 6px 0;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        #whh-news-demo .whh_news-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: #c00;
+            border-radius: 50%;
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+
+        #whh-news-demo .whh_news-text {
+            flex: 1;
+            color: #333;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        #whh-news-demo .whh_news-date {
+            color: #999;
+            margin-left: 10px;
+            flex-shrink: 0;
+        }
+        /* ===== END: 课堂测试7 样式 ===== */
     </style>
 </head>
 <body>
     <div class="shell">
         <header class="topbar">
-            <a class="brand" href="/index.html" aria-label="返回课程首页">
+            <a class="brand" href="./index.html" aria-label="返回课程首页">
                 <span class="brand-mark iconfont icon-sousuo" aria-hidden="true"></span>
                 <span>王欢欢 · 高级网页设计</span>
             </a>
@@ -358,7 +537,7 @@
                             <h3>Flex 布局复习</h3>
                             <p>回顾 Flex 布局基础，查看课堂练习页面。</p>
                         </div>
-                        <a class="module-link" href="/9.2.html">打开 9.2.html <span aria-hidden="true">↗</span></a>
+                        <a class="module-link" href="./9.2.html">打开 9.2.html <span aria-hidden="true">↗</span></a>
                     </article>
 
                     <article class="module">
@@ -367,7 +546,7 @@
                             <h3>Flex 布局案例</h3>
                             <p>浏览导航、三等分、卡片网格与侧边栏布局案例。</p>
                         </div>
-                        <a class="module-link" href="/9.4.html">打开 9.4.html <span aria-hidden="true">↗</span></a>
+                        <a class="module-link" href="./9.4.html">打开 9.4.html <span aria-hidden="true">↗</span></a>
                     </article>
 
                     <article class="module">
@@ -376,7 +555,7 @@
                             <h3>SVG 图标</h3>
                             <p>进入 SVG 图标练习页面，查看图标示例。</p>
                         </div>
-                        <a class="module-link" href="/9.9.html">打开 9.9.html <span aria-hidden="true">↗</span></a>
+                        <a class="module-link" href="./9.9.html">打开 9.9.html <span aria-hidden="true">↗</span></a>
                     </article>
 
                     <article class="module">
@@ -385,7 +564,7 @@
                             <h3>数字类型与运算符</h3>
                             <p>学习 JavaScript 数字类型和常用运算符。</p>
                         </div>
-                        <a class="module-link" href="/9.23.html">打开 9.23.html <span aria-hidden="true">↗</span></a>
+                        <a class="module-link" href="./9.23.html">打开 9.23.html <span aria-hidden="true">↗</span></a>
                     </article>
 
                     <article class="module">
@@ -394,7 +573,7 @@
                             <h3>JS 函数</h3>
                             <p>查看 JavaScript 函数相关课堂内容。</p>
                         </div>
-                        <a class="module-link" href="/JS函数.html">打开 JS函数.html <span aria-hidden="true">↗</span></a>
+                        <a class="module-link" href="./JS函数.html">打开 JS函数.html <span aria-hidden="true">↗</span></a>
                     </article>
 
                     <article class="module">
@@ -403,7 +582,7 @@
                             <h3>JS 对象</h3>
                             <p>查看 JavaScript 对象相关课堂内容。</p>
                         </div>
-                        <a class="module-link" href="/JS对象.html">打开 JS对象.html <span aria-hidden="true">↗</span></a>
+                        <a class="module-link" href="./JS对象.html">打开 JS对象.html <span aria-hidden="true">↗</span></a>
                     </article>
 
                     <article class="module">
@@ -412,7 +591,7 @@
                             <h3>JS 对象的应用</h3>
                             <p>学习 JavaScript 对象的应用示例。</p>
                         </div>
-                        <a class="module-link" href="/JS对象应用.html">打开 JS对象应用.html <span aria-hidden="true">↗</span></a>
+                        <a class="module-link" href="./JS对象应用.html">打开 JS对象应用.html <span aria-hidden="true">↗</span></a>
                     </article>
 
                     <article class="module">
@@ -421,7 +600,7 @@
                             <h3>JS 脚本基础</h3>
                             <p>查看 JavaScript 脚本基础与语法练习页面。</p>
                         </div>
-                        <a class="module-link" href="/script.html">打开 script.html <span aria-hidden="true">↗</span></a>
+                        <a class="module-link" href="./script.html">打开 script.html <span aria-hidden="true">↗</span></a>
                     </article>
 
                     <article class="module">
@@ -430,7 +609,7 @@
                             <h3>事件的冒泡与捕获</h3>
                             <p>学习 JavaScript 事件冒泡与捕获机制。</p>
                         </div>
-                        <a class="module-link" href="/事件的冒泡与捕获.html">打开 事件的冒泡与捕获.html <span aria-hidden="true">↗</span></a>
+                        <a class="module-link" href="./事件的冒泡与捕获.html">打开 事件的冒泡与捕获.html <span aria-hidden="true">↗</span></a>
                     </article>
 
                     <article class="module">
@@ -439,7 +618,7 @@
                             <h3>抓小球</h3>
                             <p>互动小游戏，练习鼠标事件与 DOM 操作。</p>
                         </div>
-                        <a class="module-link" href="/抓小球.html">打开 抓小球.html <span aria-hidden="true">↗</span></a>
+                        <a class="module-link" href="./抓小球.html">打开 抓小球.html <span aria-hidden="true">↗</span></a>
                     </article>
 
                     <article class="module">
@@ -448,28 +627,84 @@
                             <h3>Swiper 轮播效果</h3>
                             <p>六种切换效果演示：平推、淡入淡出、立方体、画廊、翻页、卡片。</p>
                         </div>
-                        <a class="module-link" href="/swiper-task.html">打开 swiper-task.html <span aria-hidden="true">↗</span></a>
+                        <a class="module-link" href="./swiper-task.html">打开 swiper-task.html <span aria-hidden="true">↗</span></a>
                     </article>
 
                     <article class="module">
                         <div>
                             <div class="module-icon iconfont icon-dianhua-copy" aria-hidden="true"></div>
-                            <h3>新闻分类 Tab 选项卡</h3>
-                            <p>基于事件委托的可复用 Tab 组件，支持国内、省内、国际、最热新闻切换。</p>
+                            <h3>Tab 选项卡</h3>
+                            <p>新闻分类 Tab 切换：国内、省内、国际、最热新闻面板切换演示。</p>
                         </div>
-                        <a class="module-link" href="/tab.html">打开 tab.html <span aria-hidden="true">↗</span></a>
+                        <a class="module-link" href="./tab.html">打开 tab.html <span aria-hidden="true">↗</span></a>
                     </article>
 
                     <article class="module">
                         <div>
-                            <div class="module-icon iconfont icon-shoucang" aria-hidden="true"></div>
-                            <h3>汽车资讯 Tab 选项卡</h3>
-                            <p>课堂测试7作业，汽车资讯新闻列表 Tab 切换，JS 动态渲染新闻标题与列表。</p>
+                            <div class="module-icon iconfont icon-sousuo" aria-hidden="true"></div>
+                            <h3>课堂测试 7 · 汽车资讯</h3>
+                            <p>汽车资讯 Tab 选项卡新闻列表，五个分类动态渲染新闻内容。</p>
                         </div>
-                        <a class="module-link" href="/课堂测试7/index.html">打开 课堂测试7 <span aria-hidden="true">↗</span></a>
+                        <a class="module-link" href="./课堂测试7/index.html">打开 课堂测试7 <span aria-hidden="true">↗</span></a>
                     </article>
                 </div>
             </section>
+
+            <!-- ===== BEGIN: 内联演示区（tab.html + 课堂测试7） ===== -->
+            <section class="demo-section" aria-labelledby="demo-title">
+                <div class="section-heading">
+                    <h2 id="demo-title">内联演示</h2>
+                    <span>tab.html 与 课堂测试7 完整代码已内联至此</span>
+                </div>
+
+                <!-- 演示一：tab.html 新闻分类 Tab 选项卡 -->
+                <div class="demo-block" id="whh-tab-demo">
+                    <h3 class="demo-block-title">tab.html · 新闻分类 Tab 选项卡</h3>
+                    <div class="whh_tab-container">
+                        <div class="whh_tab-nav">
+                            <div class="whh_tab-item whh_active" data-target="whh_panel-domestic">国内新闻</div>
+                            <div class="whh_tab-item" data-target="whh_panel-provincial">省内新闻</div>
+                            <div class="whh_tab-item" data-target="whh_panel-international">国际新闻</div>
+                            <div class="whh_tab-item" data-target="whh_panel-hot">最热新闻</div>
+                        </div>
+                        <div class="whh_tab-content">
+                            <div class="whh_tab-panel whh_active" id="whh_panel-domestic">
+                                <h2>国内新闻</h2>
+                                <p>这里是国内新闻的内容区域，展示最新的国内要闻、政策动态、社会热点等信息。</p>
+                            </div>
+                            <div class="whh_tab-panel" id="whh_panel-provincial">
+                                <h2>省内新闻</h2>
+                                <p>这里是省内新闻的内容区域，展示本省的时政、经济、文化、民生等资讯。</p>
+                            </div>
+                            <div class="whh_tab-panel" id="whh_panel-international">
+                                <h2>国际新闻</h2>
+                                <p>这里是国际新闻的内容区域，展示全球时事、国际关系、海外动态等报道。</p>
+                            </div>
+                            <div class="whh_tab-panel" id="whh_panel-hot">
+                                <h2>最热新闻</h2>
+                                <p>这里是最热新闻的内容区域，展示当前点击量最高、讨论度最广的热门话题。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 演示二：课堂测试7 汽车资讯 Tab 选项卡新闻列表 -->
+                <div class="demo-block" id="whh-news-demo">
+                    <h3 class="demo-block-title">课堂测试7 · 汽车资讯 Tab 选项卡新闻列表</h3>
+                    <div class="whh_news-box">
+                        <div class="whh_tab-nav">
+                            <div class="whh_tab-item whh_active" data-index="0">导购</div>
+                            <div class="whh_tab-item" data-index="1">3-9万</div>
+                            <div class="whh_tab-item" data-index="2">9-17万</div>
+                            <div class="whh_tab-item" data-index="3">17-42万</div>
+                            <div class="whh_tab-item" data-index="4">SUV</div>
+                        </div>
+                        <h2 class="whh_news-title"></h2>
+                        <ul class="whh_news-list"></ul>
+                    </div>
+                </div>
+            </section>
+            <!-- ===== END: 内联演示区 ===== -->
 
             <section class="prompt-section" id="prompt" aria-labelledby="prompt-title">
                 <details>
@@ -484,5 +719,197 @@
             <span>Made with HTML · CSS · local assets</span>
         </footer>
     </div>
+
+    <!-- ===== BEGIN: 内联脚本（tab.js + news.js） ===== -->
+    <script>
+        /**
+         * 功能：可复用的 Tab 选项卡初始化函数（来自 tab.js）
+         * @param {string} whh_containerSelector - tab 容器的 CSS 选择器
+         * @param {Object} whh_options - 配置选项（可选）
+         */
+        function whh_initTab(whh_containerSelector, whh_options) {
+            var whh_container = document.querySelector(whh_containerSelector);
+            if (!whh_container) {
+                console.warn('whh_initTab: 未找到容器 ->', whh_containerSelector);
+                return;
+            }
+
+            var whh_config = Object.assign({
+                tabItemClass: '.whh_tab-item',
+                tabPanelClass: '.whh_tab-panel',
+                activeClass: 'whh_active',
+                defaultIndex: 0
+            }, whh_options);
+
+            var whh_tabs = whh_container.querySelectorAll(whh_config.tabItemClass);
+            var whh_panels = whh_container.querySelectorAll(whh_config.tabPanelClass);
+
+            // 功能：清除所有 tab 按钮和面板的选中状态
+            function whh_clearActive() {
+                whh_tabs.forEach(function (whh_tab) {
+                    whh_tab.classList.remove(whh_config.activeClass);
+                });
+                whh_panels.forEach(function (whh_panel) {
+                    whh_panel.classList.remove(whh_config.activeClass);
+                });
+            }
+
+            // 功能：激活指定索引的 tab 按钮及其对应面板
+            function whh_activateTab(whh_index) {
+                whh_clearActive();
+                if (whh_tabs[whh_index]) {
+                    whh_tabs[whh_index].classList.add(whh_config.activeClass);
+                }
+                if (whh_panels[whh_index]) {
+                    whh_panels[whh_index].classList.add(whh_config.activeClass);
+                }
+            }
+
+            // 功能：处理 tab 点击事件（事件委托）
+            function whh_handleTabClick(whh_e) {
+                var whh_target = whh_e.target.closest(whh_config.tabItemClass);
+                if (!whh_target) return;
+                var whh_index = Array.from(whh_tabs).indexOf(whh_target);
+                if (whh_index !== -1) {
+                    whh_activateTab(whh_index);
+                }
+            }
+
+            whh_container.addEventListener('click', whh_handleTabClick);
+            whh_activateTab(whh_config.defaultIndex);
+        }
+
+        // ===== 课堂测试7 新闻数据与逻辑（来自 news.js） =====
+        var whh_newsData = [
+            {
+                title: '改变品牌的未来 认识豪华品牌最便宜车型',
+                list: [
+                    { text: '推荐：X1等城市四驱Style+经济省油的SUV', date: '12/19' },
+                    { text: '全景天窗/保养便利 30万办齐四驱SUV推荐', date: '12/19' },
+                    { text: '最高暴降20万！奥迪Q5等年底特惠SUV盘点', date: '12/18' },
+                    { text: '比拼硬实力 8款低配四驱紧凑SUV性能点评', date: '12/16' },
+                    { text: '花小钱也能养SUV 夏款等入门SUV使用推荐', date: '12/12' },
+                    { text: '最高优惠4.3万 十款15万SUV年末购买推荐', date: '12/16' }
+                ]
+            },
+            {
+                title: '最低仅4.6万元起 超低价SUV购买价值点评',
+                list: [
+                    { text: '全民摇号时代?六款低价占号必备车型推荐', date: '12/18' },
+                    { text: '凌派/观致3等 2013年全新热门家用车盘点', date: '12/11' },
+                    { text: '坚持低价高配路线！静态评测华泰路盛E70', date: '12/09' },
+                    { text: '买车先看销量 10月份销量前十名轿车盘点', date: '11/29' },
+                    { text: '护底正当 车展后清仓优惠老款车型推荐', date: '11/28' },
+                    { text: '土豪气质 细数车展那些低价车上的"神器"', date: '11/27' }
+                ]
+            },
+            {
+                title: '15万级降价车谁更值 预算/油耗/空间较量',
+                list: [
+                    { text: '爸爸去哪？亲子出游适合车型和注意事项', date: '12/20' },
+                    { text: '最高暴降20万！奥迪Q5等年底特惠SUV盘点', date: '12/18' },
+                    { text: '配配气帘得肯定！传祺GA3碰撞试验图解', date: '12/16' },
+                    { text: '高尔夫1≠两厢版速腾 配置/动力差异解读', date: '12/16' },
+                    { text: '花小钱也能养SUV 夏款等入门SUV使用推荐', date: '12/12' },
+                    { text: '最高优惠4.3万 十款15万SUV年末购买推荐', date: '12/16' }
+                ]
+            },
+            {
+                title: '改变品牌的未来 认识豪华品牌最便宜车型',
+                list: [
+                    { text: '爸爸去哪？亲子出游适合车型和注意事项', date: '12/20' },
+                    { text: '推荐：X1等城市四驱Style+经济省油的SUV', date: '12/19' },
+                    { text: '全景天窗/保养便利 30万办齐四驱SUV推荐', date: '12/19' },
+                    { text: '最高暴降20万！奥迪Q5等年底特惠SUV盘点', date: '12/18' },
+                    { text: '比拼硬实力 8款低配四驱紧凑SUV性能点评', date: '12/16' },
+                    { text: '新蒙迪欧/雅阁等！盘点2013中级车大变脸', date: '12/17' }
+                ]
+            },
+            {
+                title: 'B级品质满足A级需求 路盛E70亮点详解析',
+                list: [
+                    { text: '购车必看 凯迪拉克XTS领先型28T深度体验', date: '12/20' },
+                    { text: '爸爸去哪？亲子出游适合车型和注意事项', date: '12/20' },
+                    { text: '推荐：X1等城市四驱Style+经济省油的SUV', date: '12/19' },
+                    { text: '全景天窗/保养便利 30万办齐四驱SUV推荐', date: '12/19' },
+                    { text: '全民摇号时代?六款低价占号必备车型推荐', date: '12/18' },
+                    { text: '最高暴降20万！奥迪Q5等年底特惠SUV盘点', date: '12/18' }
+                ]
+            }
+        ];
+
+        /**
+         * 功能：初始化新闻 Tab 选项卡（来自 news.js）
+         * @param {string} whh_navSelector   - tab 导航容器选择器
+         * @param {string} whh_titleSelector - 新闻标题元素选择器
+         * @param {string} whh_listSelector  - 新闻列表容器选择器
+         * @param {number} whh_defaultIndex  - 默认选中的 tab 索引
+         */
+        function whh_initNewsTab(whh_navSelector, whh_titleSelector, whh_listSelector, whh_defaultIndex) {
+            var whh_nav = document.querySelector(whh_navSelector);
+            var whh_titleEl = document.querySelector(whh_titleSelector);
+            var whh_listEl = document.querySelector(whh_listSelector);
+            if (!whh_nav || !whh_titleEl || !whh_listEl) {
+                console.warn('whh_initNewsTab: 缺少必要的 DOM 元素');
+                return;
+            }
+
+            var whh_tabs = whh_nav.querySelectorAll('.whh_tab-item');
+
+            // 功能：清除所有 tab 的选中状态
+            function whh_clearActive() {
+                whh_tabs.forEach(function (whh_tab) {
+                    whh_tab.classList.remove('whh_active');
+                });
+            }
+
+            // 功能：渲染指定索引的新闻标题与列表
+            function whh_renderNews(whh_index) {
+                var whh_data = whh_newsData[whh_index];
+                if (!whh_data) return;
+                whh_titleEl.textContent = whh_data.title;
+                var whh_html = '';
+                whh_data.list.forEach(function (whh_item) {
+                    whh_html += '<li class="whh_news-item">' +
+                        '<span class="whh_news-dot"></span>' +
+                        '<span class="whh_news-text">' + whh_item.text + '</span>' +
+                        '<span class="whh_news-date">' + whh_item.date + '</span>' +
+                        '</li>';
+                });
+                whh_listEl.innerHTML = whh_html;
+            }
+
+            // 功能：激活指定索引的 tab 并渲染对应内容
+            function whh_activateTab(whh_index) {
+                whh_clearActive();
+                if (whh_tabs[whh_index]) {
+                    whh_tabs[whh_index].classList.add('whh_active');
+                }
+                whh_renderNews(whh_index);
+            }
+
+            // 功能：处理 tab 点击事件（事件委托）
+            function whh_handleClick(whh_e) {
+                var whh_target = whh_e.target.closest('.whh_tab-item');
+                if (!whh_target) return;
+                var whh_index = parseInt(whh_target.getAttribute('data-index'), 10);
+                if (!isNaN(whh_index)) {
+                    whh_activateTab(whh_index);
+                }
+            }
+
+            whh_nav.addEventListener('click', whh_handleClick);
+            whh_activateTab(whh_defaultIndex);
+        }
+
+        // 功能：页面加载完成后初始化两个内联演示
+        document.addEventListener('DOMContentLoaded', function () {
+            // 初始化 tab.html 新闻分类 Tab
+            whh_initTab('#whh-tab-demo .whh_tab-container', { defaultIndex: 0 });
+            // 初始化 课堂测试7 汽车资讯 Tab
+            whh_initNewsTab('#whh-news-demo .whh_tab-nav', '#whh-news-demo .whh_news-title', '#whh-news-demo .whh_news-list', 0);
+        });
+    </script>
+    <!-- ===== END: 内联脚本 ===== -->
 </body>
 </html>

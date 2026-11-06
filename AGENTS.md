@@ -20,6 +20,42 @@ Static HTML/CSS/JS course project (24002120413 王欢欢). No package manager, b
 - `whh_prompt.md` is the prompt log: append a record (time, model, prompt) before executing a request; never overwrite older records.
 - Keep the site framework-free and assets local (`cdn/`, `font/`); do not add external CDN URLs.
 
+## Comment conventions
+
+### HTML file header
+
+Every **new** HTML file must start with a header comment right after `<!DOCTYPE html>` (or as the first line inside `<head>`), containing exactly these four fields:
+
+```html
+<!--
+  作者：王欢欢
+  建立时间：YYYY-MM-DD
+  使用大模型：Trae
+  功能名称：<页面功能简述>
+-->
+```
+
+- Fill `建立时间` with the actual creation date.
+- Fill `功能名称` with a short Chinese description of the page's purpose.
+- Existing HTML files do not need retrofitting unless they are being edited.
+
+### JavaScript function comments
+
+Every function in `<script>` blocks or `.js` files must have a leading comment describing its main purpose. Use either JSDoc or a single-line comment placed immediately above the function declaration:
+
+```javascript
+// 功能：<该函数主要实现的功能>
+function whh_xxx() { ... }
+
+// 功能：<该函数主要实现的功能>
+const whh_yyy = () => { ... };
+```
+
+- Keep the description concise and in Chinese.
+- Arrow functions, function declarations, and methods all need this comment.
+- Trivial one-line callbacks (e.g. `.forEach(x => x++)`) are exempt.
+
+
 ## Verification / gotchas
 
 - Root iconfont pages work over `file://`. `四级项目/js/script.js` fetches `./data/{comic,category,rank,user}.json` and `./images/…`; those directories are absent, and `fetch` fails on `file://`. Serve over HTTP (e.g. `python -m http.server`) and expect data/image sections to 404 until those assets are added.

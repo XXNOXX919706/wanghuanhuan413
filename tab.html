@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!--
+  作者：王欢欢
+  建立时间：2026-11-04
+  使用大模型：Trae
+  功能名称：新闻分类tab选项卡展示
+-->
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新闻分类 - Tab选项卡</title>
+  <style>
+    /* 页面基础样式 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Microsoft YaHei", Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 40px 20px;
+    }
+
+    /* tab 容器 */
+    .whh_tab-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    /* tab 导航栏 */
+    .whh_tab-nav {
+      display: flex;
+      border-bottom: 2px solid #e0e0e0;
+      background: #fafafa;
+    }
+
+    /* tab 选项卡按钮 */
+    .whh_tab-item {
+      flex: 1;
+      padding: 14px 0;
+      text-align: center;
+      cursor: pointer;
+      font-size: 16px;
+      color: #666;
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+
+    .whh_tab-item:hover {
+      color: #1890ff;
+      background: #f0f7ff;
+    }
+
+    /* 选中状态 */
+    .whh_tab-item.whh_active {
+      color: #1890ff;
+      font-weight: bold;
+      border-bottom: 3px solid #1890ff;
+      background: #fff;
+    }
+
+    /* tab 内容区域 */
+    .whh_tab-content {
+      padding: 30px;
+      min-height: 200px;
+    }
+
+    /* tab 面板 */
+    .whh_tab-panel {
+      display: none;
+      font-size: 15px;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    /* 面板选中状态（显示） */
+    .whh_tab-panel.whh_active {
+      display: block;
+    }
+
+    .whh_tab-panel h2 {
+      margin-bottom: 16px;
+      color: #1890ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="whh_tab-container">
+    <!-- tab 选项卡导航 -->
+    <div class="whh_tab-nav">
+      <div class="whh_tab-item whh_active" data-target="whh_panel-domestic">国内新闻</div>
+      <div class="whh_tab-item" data-target="whh_panel-provincial">省内新闻</div>
+      <div class="whh_tab-item" data-target="whh_panel-international">国际新闻</div>
+      <div class="whh_tab-item" data-target="whh_panel-hot">最热新闻</div>
+    </div>
+
+    <!-- tab 内容面板 -->
+    <div class="whh_tab-content">
+      <div class="whh_tab-panel whh_active" id="whh_panel-domestic">
+        <h2>国内新闻</h2>
+        <p>这里是国内新闻的内容区域，展示最新的国内要闻、政策动态、社会热点等信息。</p>
+      </div>
+      <div class="whh_tab-panel" id="whh_panel-provincial">
+        <h2>省内新闻</h2>
+        <p>这里是省内新闻的内容区域，展示本省的时政、经济、文化、民生等资讯。</p>
+      </div>
+      <div class="whh_tab-panel" id="whh_panel-international">
+        <h2>国际新闻</h2>
+        <p>这里是国际新闻的内容区域，展示全球时事、国际关系、海外动态等报道。</p>
+      </div>
+      <div class="whh_tab-panel" id="whh_panel-hot">
+        <h2>最热新闻</h2>
+        <p>这里是最热新闻的内容区域，展示当前点击量最高、讨论度最广的热门话题。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 外部引用 JS -->
+  <script src="js/tab.js"></script>
+  <script>
+    // 初始化 tab 选项卡，默认选中第一个（国内新闻）
+    whh_initTab('.whh_tab-container', { defaultIndex: 0 });
+  </script>
+</body>
+</html>
